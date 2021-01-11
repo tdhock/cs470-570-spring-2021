@@ -5,7 +5,7 @@ Topic: Artificial Intelligence.
 
 Dates: 01/11/2021 - 05/07/2021.
 
-Meeting time/place: MoWeFr 9:10AM - 10:00AM, SBS West, Rm 109. And on
+Meeting time/place: MoWeFr 9:10AM - 10:00AM, SBS West, Rm 110. And on
 Zoom.
 
 Course materials adapted from [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/][Dr. D's Spring 2018 offering]].
@@ -13,7 +13,8 @@ Course materials adapted from [[https://www.cefns.nau.edu/~edo/Classes/CS470-570
 Syllabus: [[https://docs.google.com/document/d/1sB11YjMPLF0TLuzI-9YCQbSQIlHbgHvRerXSKJ5XSk8/edit?usp=sharing][Google Doc]]. 
 
 ** Weekly schedule
-- Jan 11: [[https://www.youtube.com/watch?feature=player_embedded&v=J6PBD-wNEDs][Introduction]]. 
+- Jan 11: [[file:materials/2021-01-11/README.org][First day of class exercise]], [[https://www.youtube.com/watch?feature=player_embedded&v=J6PBD-wNEDs][Introduction video (to watch
+  before next class)]]
 - Jan 18: TODO
 
 [[http://ai.berkeley.edu/lecture_videos.html][Berkeley Lecture Videos]]
