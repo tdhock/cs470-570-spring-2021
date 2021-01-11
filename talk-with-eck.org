@@ -1,0 +1,23 @@
+Plan on very first day what they will learn. classical projects. deep
+learning at end. Maybe little pytorch project at the end.
+
+Slides from AIMA web page.
+
+Keep Main heading, Keep figures, Deleted sub-bullets. Post outline
+slides for students. Copy ok, "adapted from" with.
+
+homeworks with theory related problems not coding.
+
+quizzes. interpretive. multiple guess. took a lot of time.
+
+DOs sign of life milestones, 3 week projects, each week show a printout of
+something working. 10/100 for each sign of life. Game playing.
+
+DONTs Inverse teaching, video lectures dicey proposition. Alpha-beta
+pruner challenge for them to implement. One team just did really basic
+search, but it still did pretty well in competition. Logic? problem
+with programming, put off projects. Diagrams take forever on white board. 
+
+Coming up with assignments, copy from github. Problems with solutions
+not available online.
+
