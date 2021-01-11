@@ -1,9 +1,12 @@
-14 rooms of 5 people, 2 minutes each to answer
+20 rooms of 6 people, 3 minutes each to answer
 
 1. name
-2. why are you studying computer science?
-3. what is intelligence? artificial intelligence? (in your opinion)
-4. what knowledge/skills do you hope to learn in this class?
+2. how are you feeling these days given the pandemic, the attack on
+   the capitol last week, online learning?
+3. why are you studying computer science?
+4. what is intelligence? artificial intelligence? (in your opinion)
+5. can you give some examples of AI in fiction and the real world?
+6. what knowledge/skills do you hope to learn in this class?
 
 share answers in chat after.
 
