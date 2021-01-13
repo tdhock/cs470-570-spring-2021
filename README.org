@@ -13,17 +13,21 @@ Course materials adapted from [[https://www.cefns.nau.edu/~edo/Classes/CS470-570
 Syllabus: [[https://docs.google.com/document/d/1sB11YjMPLF0TLuzI-9YCQbSQIlHbgHvRerXSKJ5XSk8/edit?usp=sharing][Google Doc]]. 
 
 ** Weekly schedule
+
 - Jan 11: [[file:materials/2021-01-11/README.org][First day of class exercise]], [[https://www.youtube.com/watch?feature=player_embedded&v=J6PBD-wNEDs][Introduction video (to watch
   before next class)]]
 - Jan 18: TODO
 
-[[http://ai.berkeley.edu/lecture_videos.html][Berkeley Lecture Videos]]
+** Video Resources
+
+- [[https://drive.google.com/drive/folders/1pT_E2KcJO039mxK5c4aTVeVlnCwFdQeS?usp=sharing][Google Drive folder with videos from class]].
+- [[http://ai.berkeley.edu/lecture_videos.html][Berkeley Lecture Videos]].
 
 ** Textbook
 
 The optional readings will be from [[http://aima.cs.berkeley.edu/][Artificial Intelligence: A Modern
 Approach]] by Russell and Norvig.
-- [[https://arizona-nau-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?docid=01NAU_ALMA21108980210003842&context=L&vid=01NAU&lang=en_US&search_scope=Everything&adaptor=Local%2520Search%2520Engine&tab=default_tab&query=any,contains,artificial%2520intelligence%2520a%2520modern%2520approach&mode=Basic][Dead tree book at Cline]]
+- [[https://arizona-nau-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?docid=01NAU_ALMA21108980210003842&context=L&vid=01NAU&lang=en_US&search_scope=Everything&adaptor=Local%2520Search%2520Engine&tab=default_tab&query=any,contains,artificial%2520intelligence%2520a%2520modern%2520approach&mode=Basic][Dead tree book at Cline]] (on 4 hour reserve).
 - [[https://www.amazon.com/Artificial-Intelligence-Approach-Stuart-Russell/dp/9332543518][Amazon]]
 
 ** Exercises
