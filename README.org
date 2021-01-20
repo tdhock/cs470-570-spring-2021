@@ -14,9 +14,35 @@ Syllabus: [[https://docs.google.com/document/d/1sB11YjMPLF0TLuzI-9YCQbSQIlHbgHvR
 
 ** Weekly schedule
 
-- Jan 11: [[file:materials/2021-01-11/README.org][First day of class exercise]], [[https://www.youtube.com/watch?feature=player_embedded&v=J6PBD-wNEDs][Introduction video (to watch
-  before next class)]]
-- Jan 18: TODO
+Assignments are due as PDF files in bblearn by 11:59PM on the
+indicated date. Grad project is only for CS570 students; other
+assignments are for all students.
+
+- Week 1, Jan 11: [[file:materials/2021-01-11/README.org][First day of class exercise]], [[https://www.youtube.com/watch?feature=player_embedded&v=J6PBD-wNEDs][Introduction video (to watch
+  before next class)]], chapter 1 lecture (introduction and history).
+- Week 2, Jan 18: Chapter 2 lecture (intelligent agents). Announcement
+  about upcoming due dates (program 1, grad project proposal, Ch2
+  homework).
+- Week 3, Jan 25: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Program1-Bogglev2.html][Program 1]] Part 1 due Fri Jan 29. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]]
+  proposal due Weds Jan 27.
+- Week 4, Feb 1: Chapter 3 lecture. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch02.html][Ch2 Homework]] due Mon Feb 1. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Program1-Bogglev2.html][Program 1]] Part
+  2 due Fri Feb 5.
+- Week 5, Feb 8: Chapter 4 lecture.
+- Week 6, Feb 15: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch03.html][Ch3 Homework]] due Mon Feb 15. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] completed
+  literature review due Weds Feb 17. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog2-RoadwarriorSearch/Program2-RoadWarrior.html][Program 2]] Part 1 due Fri Feb 19.
+- Week 7, Feb 22: Chapter 7 lecture. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog2-RoadwarriorSearch/Program2-RoadWarrior.html][Program 2]] Part 2 due Fri Feb 26.
+- Week 8, Mar 1: Chapter 8-9. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch04.html][Ch4 Homework]] due Mon Mar 1.
+- Week 9, Mar 8: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch07.html][Ch7 Homework]] due Mon Mar 8. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] Proposal and
+  presentation.
+- Week 10, Mar 15: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch08.html][Ch8 Homework]] due Mon Mar 15. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog3-Logic/Program3-FOPL.html][Program 3]] due Fri
+  Mar 19.
+- Week 11, Mar 22: Chapter 5 lecture.
+- Week 12, Mar 29: Chapter 13 lecture. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] draft paper due.
+- Week 13, Apr 5: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch05.html][Ch5 Homework]]. Phase 0 due Fri Apr 16.
+- Week 14, Apr 12: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog4-Gaming/Program4-Halma.html][Final program]].  [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog4-Gaming/Program4-Halma.html][Final program]] Phase 1 due Fri Apr 23.
+- Week 15, Apr 19: reading week. presentations. 
+- Week 16, Apr 26: finals week.  [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog4-Gaming/Program4-Halma.html][Final program]] Phase 2 due day before
+  final exam. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] final paper due.
 
 ** Video Resources
 
