@@ -14,7 +14,7 @@ Syllabus: [[https://docs.google.com/document/d/1sB11YjMPLF0TLuzI-9YCQbSQIlHbgHvR
 
 ** Weekly schedule
 
-Assignments are due as PDF files in bblearn by 11:59PM on the
+Assignments are due in bblearn by 11:59PM on the
 indicated date. Grad project is only for CS570 students; other
 assignments are for all students.
 
