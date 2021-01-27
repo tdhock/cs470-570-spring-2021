@@ -24,7 +24,8 @@ assignments are for all students.
   about upcoming due dates (program 1, grad project proposal, Ch2
   homework).
 - Week 3, Jan 25: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Program1-Bogglev2.html][Program 1]] Part 1 due Fri Jan 29. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]]
-  proposal due Weds Jan 27.
+  proposal due Weds Jan 27. Supplementary [[https://www.youtube.com/watch?feature=player_embedded&v=afwPe_OqPX0][video lecture about search]],
+  [[https://www.youtube.com/watch?v=cXZKV7K5v3E][demo of depth/breadth-first search]].
 - Week 4, Feb 1: Chapter 3 lecture. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch02.html][Ch2 Homework]] due Mon Feb 1. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Program1-Bogglev2.html][Program 1]] Part
   2 due Fri Feb 5.
 - Week 5, Feb 8: Chapter 4 lecture.
