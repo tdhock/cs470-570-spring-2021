@@ -12,6 +12,14 @@ Course materials adapted from [[https://www.cefns.nau.edu/~edo/Classes/CS470-570
 
 Syllabus: [[https://docs.google.com/document/d/1sB11YjMPLF0TLuzI-9YCQbSQIlHbgHvRerXSKJ5XSk8/edit?usp=sharing][Google Doc]]. 
 
+** Programming Projects
+
+For each programming project the input data file that you must use
+with your program will be posted here.
+
+- Program 1 part 1
+- TODO
+
 ** Weekly schedule
 
 Assignments are due in bblearn by 11:59PM on the
