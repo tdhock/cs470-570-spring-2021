@@ -15,10 +15,45 @@ Syllabus: [[https://docs.google.com/document/d/1sB11YjMPLF0TLuzI-9YCQbSQIlHbgHvR
 ** Programming Projects
 
 For each programming project the input data file that you must use
-with your program will be posted here.
+with your program will be posted here. 
 
-- Program 1 part 1
+- Program 1 part 1 (will appear on morning of due date).
 - TODO
+
+Please make sure that your report contains the commands and output as
+shown in [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Phase1output.txt][this example output file]]. For each test command
+- There should be a >>> prompt followed by the test command,
+- followed by the output of that command (from print statements and/or
+  the return value),
+- followed by a newline (to provide visual separation between each
+  command). If you do sys.ps1='\n>>>' then that will print a newline
+  before every command prompt.
+
+One way to do this is by simply running "python" which starts the
+interactive REPL, and then paste your code in. A more automated way to
+do this (less tedious copy-pasting) is by running your python script
+through [[file:interpreter.py]].
+
+It is recommended to separate your functions into two files, e.g.,
+- [[file:project0_funs.py]] which defines the functions you need for your
+  project.
+- [[file:project0_tests.py]] which imports those functions and then runs
+  the tests.
+Then you can run the tests file through [[file:interpreter.py]] to get the
+required output, e.g.,
+
+#+begin_src shell-script
+$ python interpreter.py project0_tests.py
+
+>>> from project0_funs import *
+
+>>> add(1, 2)
+3
+
+>>> add(3, 4)
+7
+
+#+end_src
 
 ** Weekly schedule
 
