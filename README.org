@@ -17,7 +17,7 @@ Syllabus: [[https://docs.google.com/document/d/1sB11YjMPLF0TLuzI-9YCQbSQIlHbgHvR
 For each programming project the input data file that you must use
 with your program will be posted here. 
 
-- Program 1 part 1 (will appear on morning of due date).
+- [[file:programs/boggle-part1/board.txt][Program 1 part 1 input file]].
 - TODO
 
 Please make sure that your report contains the commands and output as
