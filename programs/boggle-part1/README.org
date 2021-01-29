@@ -99,7 +99,7 @@ thinking "massive recursion!" then you're on the right track...
 - These functions should be defined in a file named project1_funs.py.
 - Download [[file:project1_test1.py]] and put it in the same
   directory. Running it should give [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Phase1output.txt][output like this]].
-- You must use this [[file:board.txt]] as your input file.
+- You must use this [[file:board.txt]] and [[file:twl06.txt]] as your input files.
 - Submit a PDF with (1) Cover sheet: Name, course, assignment title,
   date, (2) output of running [[file:project1_test1.py]] including prompt,
   input/output for each command, and a newline between commands, (3)

@@ -17,10 +17,10 @@ Syllabus: [[https://docs.google.com/document/d/1sB11YjMPLF0TLuzI-9YCQbSQIlHbgHvR
 For each programming project the input data file that you must use
 with your program will be posted here. 
 
-| description       | inputs    | tests             |
-|-------------------+-----------+-------------------|
-| [[file:programs/boggle-part1/README.org][Program 1 part 1]]  | [[file:programs/boggle-part1/board.txt][board.txt]] | [[file:programs/boggle-part1/project1_test1.py][project1_test1.py]] |
-| Program 1 part 2  |           |                   |
+| description      | inputs               | tests             |
+|------------------+----------------------+-------------------|
+| [[file:programs/boggle-part1/README.org][Program 1 part 1]] | [[file:programs/boggle-part1/board.txt][board.txt]], [[file:programs/boggle-part1/twl06.txt][twl06.txt]] | [[file:programs/boggle-part1/project1_test1.py][project1_test1.py]] |
+| Program 1 part 2 |                      |                   |
 
 
 Please make sure that your report contains the commands and output as
