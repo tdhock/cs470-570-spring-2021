@@ -58,7 +58,7 @@ print out a summary of its findings.
 
 This is not a particularly hard problem...provided you think it
 through! (Hint: elegance, recursion).  Just as a reference point: my
-solution has one main function of about 15 lines, plus three smaller
+solution has one function of about 15 lines, plus three smaller
 helpers to load/print out boards and stuff.  Without comments, the
 whole thing fits on a page.  
 
@@ -121,3 +121,7 @@ thinking "massive recursion!" then you're on the right track...
 - How should I organize the board data structure and indexing? You are
   free to organize your data structure / indexing as you like as long
   as the output is correct.
+
+** Credits
+
+Adapted from [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Program1-Bogglev2.html][Eck Doerry]].
