@@ -131,6 +131,13 @@ your project1_funs.py source code with comments.
 
 ** FAQ
 
+- Do we have to use "cleverness" ? NO but if you do your program will run a lot faster.
+- it mentions to output the “total number of words checked,” but the
+  sample outputs mention only moves (moving from one tile to another I
+  assume). Are words checked and moves the same thing? If not, can I
+  get a clear definition of “words checked”? Yes, every time you move
+  that is another candidate word to check.
+
 ** Credits
 
 Adapted from [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Program1-Bogglev2.html][Eck Doerry]].
