@@ -129,6 +129,16 @@ running your solver on three test boards including prompt,
 input/output for each command, and a newline between commands, (4)
 your project1_funs.py source code with comments.
 
+** Rubric
+
+70 points total
+- 5 points professional presentation / proper English.
+- 5 points for descriptions of functions and comments in code.
+- 5 points for correctness of each board output (15 total)
+- 20 points for quality/effort put into the code (you can get credit
+  here even if your outputs are not correct).
+- 5 points for each analysis question (25 total)
+
 ** FAQ
 
 - Why am I getting error X? Have you tried debugging with
