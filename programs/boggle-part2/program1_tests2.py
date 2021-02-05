@@ -1,2 +1,4 @@
 from program1_funs import *
-runBoard("board.txt")
+for size in 2, 3, 4:
+    runBoard("board%d.txt" % size)
+

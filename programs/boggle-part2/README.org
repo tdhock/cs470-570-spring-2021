@@ -100,9 +100,9 @@ ready to run a few easy tests, producing output as described. To test
 the performance of your Boggle solver, run your solver on the
 following test boards (links will be posted near the due date):
 
-- This 2x2 board
-- This 3x3 board
-- This 4x4 board
+- [[file:board2.txt][This 2x2 board]]
+- [[file:board3.txt][This 3x3 board]]
+- [[file:board4.txt][This 4x4 board]]
 
 For each of your runs, paste the output to a text file and print it
 out. Please observe the following:
@@ -131,6 +131,10 @@ your project1_funs.py source code with comments.
 
 ** FAQ
 
+- Why am I getting error X? Have you tried debugging with
+  pdb.set_trace() and/or conditional breakpoints? For low level
+  debugging issues like this please first ask your classmates and then
+  if that does not help come to office hours.
 - Do we have to use "cleverness" ? NO but if you do your program will run a lot faster.
 - it mentions to output the “total number of words checked,” but the
   sample outputs mention only moves (moving from one tile to another I
