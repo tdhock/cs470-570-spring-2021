@@ -1,0 +1,67 @@
+1. Your goal is to navigate a robot out of a maze. The robot starts in
+   the center of the maze facing north. You can turn the robot to face
+   north, east, south, or west. You can direct the robot to move
+   forward a certain distance, although it will stop before hitting a
+   wall.
+  - (a) Formulate this problem. How large is the state space?
+  - (b) In navigating a maze, the only place we need to turn is at the
+     intersection of two or more corridors. Reformulate this problem
+     using this observation. How large is the state space now?
+  - (c) From each point in the maze, we can move in any of the four
+     directions until we reach a turning point, and this is the only
+     action we need to do. Reformulate the problem using these
+     actions. Do we need to keep track of the robot’s orientation now?
+  - (d) In our initial description of the problem we already abstracted
+     from the real world, restricting actions and removing
+     details. List three such simplifications we made.
+
+2. Which of the following are true and which are false? Explain your answers.
+  - (a) Depth-first search always expands at least as many nodes as A*
+     search with an admissible heuristic.
+  - (b) h(n)=0 is an admissible heuristic for the 8-puzzle.
+  - (c) A* is of no use in robotics because percepts, states, and actions
+     are continuous.
+  - (d) Breadth-first search is complete even if zero step costs are
+     allowed.
+  - (e) Assume that a rook can move on a chessboard any number of squares
+     in a straight line, vertically or horizontally, but cannot jump
+     over other pieces. Manhattan distance is an admissible heuristic
+     for the problem of moving the rook from square A to square B in
+     the smallest number of moves.
+
+3. Consider a state space where the start state is number 1 and each state k has two successors: numbers 2k and 2k+1.
+  - (a) Draw the portion of the state space for states 1 to 15.
+  - (b) Suppose the goal state is 11. List the order in which nodes will
+     be visited for breadth-first search, depth-limited search with
+     limit 3, and iterative deepening search.
+  - (c) How well would bidirectional search work on this problem? What is
+     the branching factor in each direction of the bidirectional
+     search?
+  - (d) Does the answer to (c) suggest a reformulation of the problem
+     that would allow you to solve the problem of getting from state 1
+     to a given goal state with almost no search?
+
+4. A basic wooden railway set contains a set of N pieces, each with one
+  or more holes and pegs. For example a straight or curved track has a
+  hole on one side and a peg on the other. A fork track has either two
+  pegs and one hole, or two holes and one peg. The task is to connect
+  these pieces into a railway that has no overlapping tracks and no
+  loose ends where a train could run off onto the floor (assume that
+  this is possible by design). Assume you place the first piece with
+  it's notch/hole at (0,0), and that for any piece, there is a known
+  "offset" so that, given the location of where you place it's hole
+  (by snapping it onto an "open" peg), you can calculate where the
+  piece's peg fall in the 2D space. So your "open" list in the search
+  really is just a list of open peg locations...that you could snap
+  new pieces onto.
+  - (a) Give a precise formulation of the task as a search problem
+     (initial state, successor function, goal test, step cost).
+  - (b) Identify a suitable uninformed search algorithm for this task and
+     explain your choice.
+  - (c) Explain why removing any one of the “fork” pieces makes the
+     problem unsolvable.
+  - (d) EXTRA CREDIT: Give an upper bound on the total size of the state
+     space defined by your formulation. (Hint: think about the maximum
+     branching factor for the construction process and the maximum
+     depth, ignoring the problem of overlapping pieces and loose
+     ends. Begin by pretending that every piece is unique.)

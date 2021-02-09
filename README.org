@@ -76,7 +76,7 @@ assignments are for all students.
 - Week 4, Feb 1: Chapter 3 lecture. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch02.html][Ch2 Homework]] due Mon
   Feb 1. Program 1 Part 2 due Fri Feb 5.
 - Week 5, Feb 8: Chapter 4 lecture.
-- Week 6, Feb 15: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch03.html][Ch3 Homework]] due Mon Feb 15. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] completed
+- Week 6, Feb 15: [[file:homework/3.org][Ch3 homework]] due Mon Feb 15. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] completed
   literature review due Weds Feb 17. Program 2 Part 1 due Fri Feb 19.
 - Week 7, Feb 22: Chapter 7 lecture. Program 2 Part 2 due Fri Feb 26.
 - Week 8, Mar 1: Chapter 8-9. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch04.html][Ch4 Homework]] due Mon Mar 1. Mid-term review and exam.
