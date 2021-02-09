@@ -21,6 +21,8 @@ with your program will be posted here.
 |------------------+----------------------------------+--------------------|
 | [[file:programs/boggle-part1/README.org][Program 1 part 1]] | [[file:programs/boggle-part1/board.txt][board.txt]], [[file:programs/boggle-part1/twl06.txt][twl06.txt]]             | [[file:programs/boggle-part1/project1_test1.py][project1_test1.py]]  |
 | [[file:programs/boggle-part2/README.org][Program 1 part 2]] | [[file:programs/boggle-part2/board2.txt][board2.txt]] [[file:programs/boggle-part2/board3.txt][board3.txt]] [[file:programs/boggle-part2/board4.txt][board4.txt]] | [[file:programs/boggle-part2/program1_tests2.py][program1_tests2.py]] |
+| [[file:programs/roadwarrior-part1/README.org][Program 2 part 1]] | [[file:programs/roadwarrior-part1/30node.txt][30node.txt]]                       | [[file:programs/roadwarrior-part1/program2_tests1.py][program2_tests1.py]] |
+| [[file:programs/roadwarrior-part2/README.org][Program 2 part 2]] | [[file:programs/roadwarrior-part2/tenNode.txt][tenNode.txt]]                      |                    |
 
 Please make sure that your report contains the commands and output as
 shown in [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Phase1output.txt][this example output file]]. For each test command
@@ -77,7 +79,7 @@ assignments are for all students.
 - Week 6, Feb 15: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch03.html][Ch3 Homework]] due Mon Feb 15. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] completed
   literature review due Weds Feb 17. Program 2 Part 1 due Fri Feb 19.
 - Week 7, Feb 22: Chapter 7 lecture. Program 2 Part 2 due Fri Feb 26.
-- Week 8, Mar 1: Chapter 8-9. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch04.html][Ch4 Homework]] due Mon Mar 1.
+- Week 8, Mar 1: Chapter 8-9. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch04.html][Ch4 Homework]] due Mon Mar 1. Mid-term review and exam.
 - Week 9, Mar 8: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch07.html][Ch7 Homework]] due Mon Mar 8. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] Proposal and
   presentation.
 - Week 10, Mar 15: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch08.html][Ch8 Homework]] due Mon Mar 15. Program 3 due Fri
