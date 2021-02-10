@@ -259,6 +259,7 @@ class GraphMaker:
         plt.close()
 
 ### UNIT TESTING
-
-x=GraphMaker(7)
-x.plot()
+if __name__ == "__main__":
+    import sys
+    x=GraphMaker(sys.argv[1])
+    x.export(sys.argv[2])

@@ -204,3 +204,5 @@ A PDF on bblearn with the following items in exactly this order:
 - 4. Your richly commented and professionally presented code (maybe be
   duplex printed).
 
+Tests file with commands you should run: [[file:program2_tests1.py][program2_tests1.py]], sample
+[[file:samplemap.txt][input file]], sample [[file:samplemap.out][console output]], [[file:samplemap.png][map image output]].

@@ -12,24 +12,18 @@ initial_children = s.successors(s.open.pop(0))
 [n.showBasic() for n in initial_children]
 
 # (f) Show three inserts: at the front, and the end, and "in order"
-s.reset()
-initial_children = s.successors(s.open.pop(0))
-ignored = s.insert_front(initial_children)
-[n.showBasic() for n in s.open]
+def reset_insert(where):
+    s.reset()
+    initial_children = s.successors(s.open.pop(0))
+    insert_method = getattr(s, "insert_"+where)
+    insert_method(initial_children)
+    return [n.showBasic() for n in s.open]
 
-s.reset()
-initial_children = s.successors(s.open.pop(0))
-ignored = s.insert_end(initial_children)
-[n.showBasic() for n in s.open]
+reset_insert("front")
+reset_insert("end")
+reset_insert("ordered")
 
-s.reset()
-initial_children = s.successors(s.open.pop(0))
-ignored = s.insert_ordered(initial_children)
-[n.showBasic() for n in s.open]
-
-# (g) Now let's make sure your INSERT handles duplicates properly:
-# manually create new nodes for (K,500), (C,91) and (J,10). INSERT
-# these into your OPEN list, showing the results.
+# (g) INSERT (K,500), (C,91) and (J,10) and show no duplicates.
 newdata = (("K",500), ("C",91), ("J",10))
 newlist = [SNode(label=label, pathcost=pathcost) for label, pathcost in newdata]
 ignored = s.insert_end(newlist)
