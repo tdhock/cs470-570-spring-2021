@@ -193,7 +193,7 @@ A PDF on bblearn with the following items in exactly this order:
   - (b) Show your program loading in the 30-node sample file above.
   - (c) Show you program setting start node=U and end
     node=T. Accompany your console action with snapshot of the
-    graphical map after this action, i.e., using the [[file:DRDViz.py][GraphViz]] tool.
+    graphical map after this action, i.e., using the [[file:DRDViz.py][DRDViz]] tool.
   - (d) Ask your program to show your OPEN list to see that indeed
     node U is in it. Your node.showBasic() method should print (label,
     value) for that node.
