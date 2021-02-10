@@ -80,7 +80,7 @@ actually lay out/visualize the search graphically.
 [[file:searchpic.jpg]]
 
 For instance, [[file:samplemap.txt][here is the map file which corresponds to the image above]]. The
-map on the right is actually a snapshot of the GraphViz tool I made in
+map on the right is actually a snapshot of the [[file:DRDViz.py][DRDViz]] tool in
 action: start and goal have been marked, and a search has been started
 and has explored several nodes.
 
@@ -157,7 +157,16 @@ solution should be producing:
 
 As you can see from the specs above, your program needs to provide certain outputs...which will allow me to evaluate whether you have correctly implemented the targeted search functionality. In order for this to work out (i.e., for us all to produce easily comparable output for a given search on a given map), we need to all answer address certain "undefined" issues in the same way. Please observe the following rules in implementing your solution:
 
-- You may use only "standard" Python data structures and packages! That means lists, tuples, dictionaries, etc. --- nothing that you need to "import". The only packages that you may import relate to some obvious utilities: you can use scipy.spatial if to do some things like computing distances between cartesian points, etc. Other useful utility functions could be used from "sys", "math", "numpy". And of course you can import that GraphViz and GraphMaker classes that I provide as tools. You get the picture: nothing fancy that you discovered while snooping around the internet. If you have a doubt, ask.
+- You may use only "standard" Python data structures and packages!
+  That means lists, tuples, dictionaries, etc. --- nothing that you
+  need to "import". The only packages that you may import relate to
+  some obvious utilities: you can use scipy.spatial if to do some
+  things like computing distances between cartesian points, etc. Other
+  useful utility functions could be used from "sys", "math",
+  "numpy". And of course you can import that [[file:DRDViz.py][DRDViz]] and [[file:graphmaker.py][GraphMaker]]
+  classes that I provide as tools. You get the picture: nothing fancy
+  that you discovered while snooping around the internet. If you have
+  a doubt, ask.
 - For BFS and DFS, the algorithm specifies where in the OPEN list newly generated child nodes go...but does not specify *how those siblings should be ordered* amongst themselves. So for instance, if you had a node "A" you were exploring and found that it was connected to nodes (T, K, Z, B, N) you would want to add these to your OPEN list to explore next. But do you add (T,K,Z,B,N)?...or (Z,T,N,K,B)? The basic algorithm doesn't specify because it doesn't matter...so long as they are added. But of course, how you add them will change the order of nodes explored during your search! To make sure everybody's output for a given search is the same, we will specify that newly generated nodes for BFS and DFS are *ordered alphabetically*, i.e., so that siblings get explored in alphabetical order. Thus for the above example, you'd add (B,K,N,T,Z). This is super simple: in your "successors" function, you'd compute the legal next nodes...and then simply sort that list alphabetically before returning it.
 - The OPEN list (frontier Q) is ordered from front to back, meaning that when you view the list, the NEXT node to be explored appears at the FRONT of the list (item[0]). So as you explore nodes, you will be plucking the next node to explore from the front. Again, this makes it easy to understand when people print out their OPEN list.
 - If you are inserting a child node that already exists in OPEN list (already another path to it found earlier) you only keep one copy. For Best and A*, the algorithm is clear: you keep only the "better" of the two. For breadth/depth first, we will do the following for consistency: breadth-first, drop the new child (keep the existing node); for depth-first, keep the new child, drop existing.
@@ -184,7 +193,7 @@ A PDF on bblearn with the following items in exactly this order:
   - (b) Show your program loading in the 30-node sample file above.
   - (c) Show you program setting start node=U and end
     node=T. Accompany your console action with snapshot of the
-    graphical map after this action, i.e., using the GraphViz tool.
+    graphical map after this action, i.e., using the [[file:DRDViz.py][GraphViz]] tool.
   - (d) Ask your program to show your OPEN list to see that indeed
     node U is in it. Your node.showBasic() method should print (label,
     value) for that node.
