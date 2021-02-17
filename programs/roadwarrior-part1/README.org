@@ -219,4 +219,4 @@ Tests file with commands you should run: [[file:program2_tests1.py][program2_tes
 ** FAQ
 
 - Where are the node.py and edge.py files we need to run DRDViz.py ?
-  They are in [[file:README.org][this directory]].
+  They are in [[file:../roadwarrior-part1][this directory]].
