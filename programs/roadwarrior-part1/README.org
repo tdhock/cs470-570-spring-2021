@@ -215,3 +215,8 @@ A PDF on bblearn with the following items in exactly this order:
 
 Tests file with commands you should run: [[file:program2_tests1.py][program2_tests1.py]], sample
 [[file:samplemap.txt][input file]], sample [[file:samplemap.out][console output]], [[file:samplemap.png][map image output]].
+
+** FAQ
+
+- Where are the node.py and edge.py files we need to run DRDViz.py ?
+  They are in [[file:../roadwarrior-part1][this directory]].
