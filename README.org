@@ -78,12 +78,10 @@ assignments are for all students.
 - Week 5, Feb 8: Chapter 4 lecture.
 - Week 6, Feb 15: [[file:homework/3.org][Ch3 homework]] due Mon Feb 15. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] completed
   literature review due Weds Feb 17. Program 2 Part 1 due Fri Feb 19.
-- Week 7, Feb 22: Chapter 7 lecture. Program 2 Part 2 due Fri Feb 26.
-- Week 8, Mar 1: Chapter 8-9. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch04.html][Ch4 Homework]] due Mon Mar 1. Mid-term review and exam.
-- Week 9, Mar 8: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch07.html][Ch7 Homework]] due Mon Mar 8. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] Proposal and
-  presentation.
-- Week 10, Mar 15: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch08.html][Ch8 Homework]] due Mon Mar 15. Program 3 due Fri
-  Mar 19.
+- Week 7, Feb 22: Chapter 19 lecture (supervised learning). Program 2 Part 2 due Fri Feb 26.
+- Week 8, Mar 1: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch04.html][Ch4 Homework]] due Mon Mar 1. Mid-term review and exam.
+- Week 9, Mar 8: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] Proposal and presentation.
+- Week 10, Mar 15: Program 3 due Fri Mar 19.
 - Week 11, Mar 22: Chapter 5 lecture.
 - Week 12, Mar 29: Chapter 13 lecture. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] draft paper due.
 - Week 13, Apr 5: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch05.html][Ch5 Homework]]. Phase 0 due Fri Apr 16.
