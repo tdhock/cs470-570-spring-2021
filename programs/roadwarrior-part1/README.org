@@ -220,3 +220,4 @@ Tests file with commands you should run: [[file:program2_tests1.py][program2_tes
 
 - Where are the node.py and edge.py files we need to run DRDViz.py ?
   They are in [[file:../roadwarrior-part1][this directory]].
+- What value should showBasic print? f cost or h cost? Answer: for part 1 please print f cost = g + h.
