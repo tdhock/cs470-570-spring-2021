@@ -12,7 +12,9 @@ Course materials adapted from [[https://www.cefns.nau.edu/~edo/Classes/CS470-570
 
 Syllabus: [[https://docs.google.com/document/d/1sB11YjMPLF0TLuzI-9YCQbSQIlHbgHvRerXSKJ5XSk8/edit?usp=sharing][Google Doc]]. 
 
-Slack: [[https://join.slack.com/t/nau-wva4384/shared_invite/zt-m9x3024m-2M~u4rIV87bHI0dWzdzfKw][Slack]]
+Honors discussio group: [[https://join.slack.com/t/nau-wva4384/shared_invite/zt-m9x3024m-2M~u4rIV87bHI0dWzdzfKw][Slack]], [[http://whenisgood.net/7shew22][Whenisgood Poll]]
+
+
 
 ** Programming Projects
 
