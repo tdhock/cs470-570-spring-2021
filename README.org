@@ -107,3 +107,16 @@ Approach]] by Russell and Norvig.
 [[https://aimacode.github.io/aima-exercises/][AIMA Exercises]]
 
 
+** Software
+
+*** pytorch 
+
+[[http://bartek-blog.github.io/python/pytorch/conda/2018/11/12/install-pytorch-with-conda.html][Tutorial explaining pytorch installation under anaconda]]. 
+
+The command I used to install was:
+
+#+begin_src shell-script
+conda install pytorch torchvision cpuonly -c pytorch
+#+end_src
+
+After that you should be able to do =import torch= in python.
