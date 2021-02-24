@@ -3,3 +3,4 @@ Program 3: image classification
 [[file:single_hidden_layer.py][Code for 1d regression we saw in class slides]].
 
 
+TODO [[https://pytorch.org/tutorials/intermediate/tensorboard_tutorial.html]]

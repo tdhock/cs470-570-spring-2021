@@ -1,0 +1,89 @@
+1. Give the name of the algorithm that results from each of the
+   following special cases, and an explanation why:
+  - (a) Local beam search with k=1.
+  - (b) Local beam search with one initial state and no limit on the number of states retained.
+  - (c) Simulated annealing with T=0 at all times (and omitting the
+    termination test). Detail: you would obviously assume that setting
+    T=0 doesn't immediately terminate the algorithm, as would
+    typically happen once Simulated Annealing's T value reaches
+    zero. So assume it just keeps searching with T=0.
+  - (d) Simulated annealing with T=∞ at all times.
+  - (e) Genetic algorithm with population size N=1.
+
+This is all about understanding the actual search behaviors of all of
+the various searches that we've talked about in Ch3 and Ch4. If you
+understand these, you can do reasoning like "Hmmm, well search-algoXX
+is really just based on a the more basic search-algoYY, but with the
+addition/modification of a, b, c." This question asks you to do
+something similar to this: think about the search behavior that would
+result when making the given tweaks to the given algos, then formulate
+that as "This would sort of like <algo name> search configured so that
+<whatever settings/assumptions>, in that <explain your reasoning,
+i.e., why the two search behaviors would be the same>". The focus is
+less on naming the algo it's like, but on your characterization of
+search behavior and how it could be seen as similar to some other one.
+
+2. Searching in belief spaces. In Ch4 we introduced belief states to
+   solve sensorless search problems. A sequence of actions solves a
+   sensorless problem if it maps every physical state in the initial
+   belief state b to a goal state. Suppose the agent knows h*(s), the
+   true optimal cost of solving the physical state s in the fully
+   observable problem, for every state s in b. Find an admissible
+   heuristic h(b) for the sensorless problem in terms of these costs,
+   and prove its admissibilty. Comment on the accuracy of this
+   heuristic on the sensorless vacuum problem of Figure 4.14. How well
+   does A* perform?
+
+This question makes you think clearly about searching within believe
+state spaces, i.e., that it's really just like searching in
+physical spaces...only you have to think a bit differently about
+heuristics. You'll need to review our discussion of A* heuristics
+and their admissibility in order to translate that to this search
+in a simple belief space. Clarification: The last piece of the
+problem state (starting with 'Comment on the accuracy...") means
+"tell me what your heuristic would compute for each state, and then
+the order of exploration that would result in for your A*.
+ 
+3. Defining belief state spaces for non-deterministic behaviors.
+   Consider the sensorless version of the erratic vacuum world
+   (sometimes the suck action cleans the dirt, and sometimes it
+   deposits dirt). Draw the belief-state space reachable from the
+   initial belief state {1,2,3,4,5,6,7,8}, and explain why the problem
+   is unsolvable.
+
+This problem explores the interaction of non-determinism and belief
+state search, asking you to draw out the belief states when the
+"erratic vacuum cleaner" (section 4.3.1) is operated in a sensorless
+worlds, and must therefore plan its actions via belief state
+search. You are also asked to think about what it means for a problem
+to be solveable in such contexts. After you explain the
+unsolveability, add this: what is the minimum modification to the
+world that would be needed to be able to produce viable solutions?
+
+4. Contingencies plans in online search. Suppose that an agent is in a
+   3×3 maze environment like the one shown in Figure 4.19 (there are
+   walls in some places that block movement). The agent knows that its
+   initial location is (1,1), that the goal is at (3,3), and that the
+   actions Up, Down, Left, Right have their usual effects unless
+   blocked by a wall. The agent does not know where the internal walls
+   are. In any given state, the agent perceives the set of legal
+   actions; it can also tell whether the state is one it has visited
+   before.
+   - (b) How many distinct percepts are possible in the initial state?
+   - (c) Describe the first few branches of a contingency plan for
+     this problem. How large (roughly) is the complete plan?
+
+Notice that this contingency plan is a solution for every possible
+environment fitting the given description. Therefore, interleaving of
+search and execution is not strictly necessary even in unknown
+environments.
+
+Part (a), which you are NOT doing, ultimately illustrates that,
+without interleaving percepts, the belief state space is
+*enormous*...roughly 2^2^12. So what about when doing online search
+where I'm developing a contingency plan to operate based on all
+possible percepts that I might see as I move? When it says "describe
+the first few branches" it means: draw out the first two levels of the
+belief space possible based on percepts received at each step,
+starting at the states possible in the initial state (i.e. from
+part(b) ), when you turn on the robot in position (1,1.)
