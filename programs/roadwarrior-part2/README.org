@@ -18,9 +18,15 @@ In addition to your code and solution print-outs, you'll need to provide a nice 
 
 - Cover sheet:  Name, course, assignment title, date
 - Your write-up to the analysis questions above, neatly typed up, cleanly formatted. Make sure you clearly label each answers so that I know which question it is addressing.
-- Printout of your program output running the 10-node and 30-node samples given above. For each one, run the first three expansion steps with VERBOSE mode on, to show development of your OPEN list. Then turn VERBOSE=off, and let the searches run to completion to show the final stats.
-- Printouts of your program running the dynamically assigned searches. Link will be activated here shortly before due date.
-- Your richly commented and professionally presented code (may be be duplex printed).
+- Printout of your program output running the [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog2-RoadwarriorSearch/sampleRuns/10sample.html][10-node]] and [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog2-RoadwarriorSearch/sampleRuns/30sample.html][30-node]]
+  samples given above. For each one, run the first three expansion
+  steps with VERBOSE mode on, to show development of your OPEN
+  list. Then turn VERBOSE=off, and let the searches run to completion
+  to show the final stats.
+- Printouts of your program running the dynamically assigned
+  searches. Link will be activated here shortly before due date.
+- Your richly commented and professionally presented code (may be be
+  duplex printed).
 
 ATTENTION: when you are showing runs of your searches, *you must
 clearly label the printouts*!! Especially: you should carefully state
