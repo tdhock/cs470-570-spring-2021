@@ -24,7 +24,7 @@ In addition to your code and solution print-outs, you'll need to provide a nice 
   list. Then turn VERBOSE=off, and let the searches run to completion
   to show the final stats.
 - Printouts of your program running the dynamically assigned
-  searches. Link will be activated here shortly before due date.
+  searches. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog2-RoadwarriorSearch/Testing-Assignment-pt2.html][DESCRIPTION]], [[file:program2_tests2.py][TESTS]].
 - Your richly commented and professionally presented code (may be be
   duplex printed).
 
