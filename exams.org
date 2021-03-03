@@ -1,0 +1,21 @@
+Practice exam 1
+
+1. We learned that a Learning Agent can be seen as being composed of
+   four interacting components (PEAS). Name the four components and
+   briefly describe what each does.
+
+2. For each of the following three task environments, give the six
+   attributes (observability, determinism, etc) with a brief
+   justification for each. (a) Poker, (b) route finding, (c)
+   chess.
+
+3. Given the [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog2-RoadwarriorSearch/Grading/small_tester.html][simple test map]] from program 2, assume we start
+   at node F and want to get to node K. Give the order of the first 10
+   nodes expanded by (a) breadth first search, (b) depth first search,
+   and (c) iterative deepening search. Break ties alphabetically.
+
+4. Genetic algorithms attempt to apply a biological metaphor to the search process.
+   (a) Describe the general concept and process of how genetic algorithms work.  Focus on how successor states are generated.  
+   (b) What was presented as a particular advantage of genetic algorithms, in comparison to the other local search techniques we looked at?
+   (c) What is a weakness of the genetic algorithms approach?
+
