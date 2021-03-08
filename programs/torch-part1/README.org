@@ -1,7 +1,109 @@
 Program 3: image classification
 
-[[file:single_hidden_layer.py][Code for 1d regression we saw in class slides]].
+** Overview
 
-TODO [[https://pytorch.org/tutorials/intermediate/tensorboard_tutorial.html]]
+In this project your goal is to create an image classification system
+using the torch module for neural networks in python.
 
+** Installation
+
+[[http://bartek-blog.github.io/python/pytorch/conda/2018/11/12/install-pytorch-with-conda.html][Tutorial explaining pytorch installation under anaconda]]. 
+
+The command I used to install was:
+
+#+begin_src shell-script
+conda install pytorch tensorboard torchvision cpuonly -c pytorch
+#+end_src
+
+After that you should be able to do =import torch= in python.
+
+** Sample code
+
+Here is some torch code that implements [[https://raw.githubusercontent.com/tdhock/2020-yiqi-summer-school/master/slides.pdf][the regression model we saw in class lecture slides]]: 
+- [[file:single_hidden_layer.py][Code for 1d regression using neural network with one hidden layer]].
+
+Here are tutorials that show you how to load, visualize, and transform
+the Fashion MNIST data set.
+- [[https://pytorch.org/tutorials/beginner/basics/data_tutorial.html][Tutorial for Fashion MNIST data set]].
+- [[https://pytorch.org/tutorials/beginner/basics/transforms_tutorial.html][Tutorial for transforming input to [0,1] and output to one-hot vector]].
+
+Here is a tutorial that shows you how to visualize data from training
+runs on tensorboard,
+- [[https://pytorch.org/tutorials/intermediate/tensorboard_tutorial.html]]
+
+Please read the torch docs!
+
+** Your task for part 1
+
+You should create a Python script:
+- download the Fashion MNIST train data.
+- transform it for training, inputs in [0,1], outputs are one-hot
+  encoded.
+- randomly assign a fold ID from 0 to 5 to each observation (6-fold
+  cross-validation). 
+- use fold ID=0 as a validation set, use all other folds as a subtrain
+  set. Since there are 60,000 observations in the train set, there
+  should be 10,000 validation, 50,000 subtrain.
+- begin by initializing two [[https://pytorch.org/docs/stable/tensorboard.html?highlight=summarywriter#torch.utils.tensorboard.writer.SummaryWriter][SummaryWriter]] instances, one for subtrain,
+  one for validation.
+- the loss function you should use is [[https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html?highlight=crossentropy#torch.nn.CrossEntropyLoss][torch.nn.CrossEntropyLoss]].
+- implement two neural networks:
+  - LeNet, [[https://www.bigrabbitdata.com/pytorch-10-mnist-with-convolutional-neural-network/][as described here]]. 
+  - Fully connected network, [[https://www.bigrabbitdata.com/pytorch-8-image-recognition-mnist-datasets-multiclass-classification/][as described here]].
+- use a for loop over the two networks, and over epochs of learning. in each
+  iteration you should
+  - take a step using one of the optimizers (e.g., SGD) and a batch
+    size of your choice.
+  - compute loss with respect to entire subtrain and validation sets.
+  - print these values on the screen and log these loss values to the
+    tensorboard writer e.g.,
+
+#+begin_src python
+writer[set].add_scalar(network._get_name()+'/loss', loss, epoch)
+#+end_src
+
+After that please load the saved data into tensorboard for
+visualization. The command I used was:
+
+#+begin_src shell-script
 rm -rf runs && python single_hidden_layer.py && tensorboard --logdir=runs
+#+end_src
+
+Then save/screenshot/export the subtrain/validation loss plots (one
+for fully connected network, one for convolutional network), as a
+function of the number of epochs.
+
+IMPORTANT: the subtrain loss should always decrease, whereas
+the validation loss should be U-shaped.
+- If the subtrain loss is not always decreasing then you probably need
+  to decrease the step size (learning rate = lr parameter of
+  optimizers).
+- If the validation loss is not U-shaped, then you probably need to
+  increase the number of iterations/epochs, or increase the learning
+  rate.
+
+** Deliverables for part 1
+
+Deliverable should be a PDF uploaded to bblearn with
+- cover page
+- result figures along with your comments / interpretation.
+  - What was the batch size / learning rate / max number of epochs you used?
+  - What was the number of epochs that minimized the validation set?
+- Python code.
+
+** Hints 
+
+if you are adapting [[file:single_hidden_layer.py][my python script for 1d regression with one
+hidden layer]]:
+- The loss function is different: mean squared error for regression,
+  cross-entropy loss for classification.
+- There is a for loop over three data sets (pattern variable), which
+  you don't need for part 1, but you may want to keep for part 2
+  (which requires running your models on both MNIST/digits and
+  FashionMNIST data).
+- Use [[https://pytorch.org/docs/stable/data.html][DataLoader]] subclass [[https://pytorch.org/vision/0.8/datasets.html#fashion-mnist][FashionMNIST]] instead of loading data using
+  pandas.
+- The number of inputs to the neural network is different: 1 input for
+  1d regression, 28x28 inputs for FashionMNIST.
+- The number of outputs is different: 1 output for 1d regression, 10
+  outputs for FashionMNIST.

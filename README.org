@@ -26,6 +26,7 @@ with your program will be posted here.
 | [[file:programs/boggle-part2/README.org][Program 1 part 2]] | [[file:programs/boggle-part2/board2.txt][board2.txt]] [[file:programs/boggle-part2/board3.txt][board3.txt]] [[file:programs/boggle-part2/board4.txt][board4.txt]]            | [[file:programs/boggle-part2/program1_tests2.py][program1_tests2.py]] |
 | [[file:programs/roadwarrior-part1/README.org][Program 2 part 1]] | [[file:programs/roadwarrior-part1/30node.txt][30node.txt]], [[file:programs/roadwarrior-part1]] | [[file:programs/roadwarrior-part1/program2_tests1.py][program2_tests1.py]] |
 | [[file:programs/roadwarrior-part2/README.org][Program 2 part 2]] | [[file:programs/roadwarrior-part2/10test.txt][10test.txt]], [[file:programs/roadwarrior-part2/50test.txt][50test.txt]]                      | [[file:programs/roadwarrior-part2/program2_tests2.py][program2_tests2.py]] |
+| [[file:programs/torch-part1/README.org][Program 3 part 1]] | NA                                          | NA                 |
 
 Please make sure that your report contains the commands and output as
 shown in [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Phase1output.txt][this example output file]]. For each test command
