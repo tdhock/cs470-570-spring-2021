@@ -25,7 +25,7 @@ Here is some torch code that implements [[https://raw.githubusercontent.com/tdho
 Here are tutorials that show you how to load, visualize, and transform
 the Fashion MNIST data set.
 - [[https://pytorch.org/tutorials/beginner/basics/data_tutorial.html][Tutorial for Fashion MNIST data set]].
-- [[https://pytorch.org/tutorials/beginner/basics/transforms_tutorial.html][Tutorial for transforming input to [0,1] and output to one-hot vector]].
+- [[https://pytorch.org/tutorials/beginner/basics/transforms_tutorial.html][Tutorial for transforming inputs to min=0 max=1 and output to one-hot vector]].
 
 Here is a tutorial that shows you how to visualize data from training
 runs on tensorboard,
