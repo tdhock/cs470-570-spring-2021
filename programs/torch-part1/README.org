@@ -17,6 +17,13 @@ conda install pytorch tensorboard torchvision cpuonly -c pytorch
 
 After that you should be able to do =import torch= in python.
 
+To test your installation try running the following using [[file:single_hidden_layer.py][my sample
+code]] and visualizing the results in tensorboard
+
+#+begin_src shell-script
+rm -rf runs && python single_hidden_layer.py && tensorboard --logdir=runs
+#+end_src
+
 ** Sample code
 
 Here is some torch code that implements [[https://raw.githubusercontent.com/tdhock/2020-yiqi-summer-school/master/slides.pdf][the regression model we saw in class lecture slides]]: 
@@ -66,7 +73,7 @@ After that please load the saved data into tensorboard for
 visualization. The command I used was:
 
 #+begin_src shell-script
-rm -rf runs && python single_hidden_layer.py && tensorboard --logdir=runs
+rm -rf runs && python your_script.py && tensorboard --logdir=runs
 #+end_src
 
 Then save/screenshot/export the subtrain/validation loss plots (one
