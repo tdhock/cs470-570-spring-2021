@@ -21,7 +21,7 @@ To test your installation try running the following using [[file:single_hidden_l
 code]] and visualizing the results in tensorboard
 
 #+begin_src shell-script
-rm -rf runs && python single_hidden_layer.py && tensorboard --logdir=runs
+rm -r runs && python single_hidden_layer.py && tensorboard --logdir=runs
 #+end_src
 
 ** Sample code
@@ -73,7 +73,7 @@ After that please load the saved data into tensorboard for
 visualization. The command I used was:
 
 #+begin_src shell-script
-rm -rf runs && python your_script.py && tensorboard --logdir=runs
+rm -r runs && python your_script.py && tensorboard --logdir=runs
 #+end_src
 
 Then save/screenshot/export the subtrain/validation loss plots (one
