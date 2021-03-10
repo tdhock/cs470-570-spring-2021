@@ -70,7 +70,7 @@ writer[set].add_scalar(network._get_name()+'/loss', loss, epoch)
 #+end_src
 
 After that please load the saved data into tensorboard for
-visualization. The command I used was:
+visualization, e.g.
 
 #+begin_src shell-script
 rm -rf runs && python your_script.py && tensorboard --logdir=runs

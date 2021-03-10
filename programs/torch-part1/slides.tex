@@ -199,7 +199,7 @@ class Net(torch.nn.Module):
 We can write the units at each layer as
 $h^{(0)},h^{(1)},\dots, h^{(L-1)}, h^{(L)}$ where
 \begin{itemize}
-\item $h^{(0)}=x\in\mathbb R^n$ is an input feature vector,
+\item $h^{(0)}=x\in\mathbb R^d$ is an input feature vector,
 \item and
 $h^{(L)}\in\mathbb R$ is the predicted output.
 \end{itemize}
@@ -214,8 +214,8 @@ Total number of parameters to learn is
 $\sum_{l=1}^L u^{(l)} u^{(l-1)}.$
 
 Quiz: how many parameters in a
-neural network for $n=10$ inputs/features with one hidden layer with
-$u=100$ units?
+neural network for $d=10$ inputs/features with one hidden layer with
+$u=100$ units? (one output unit, ten output units)
 \end{frame}
 
 
