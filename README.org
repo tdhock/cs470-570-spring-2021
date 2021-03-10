@@ -85,8 +85,8 @@ assignments are for all students.
 - Week 7, Feb 22: Chapter 19 lecture (supervised learning)
   [[https://raw.githubusercontent.com/tdhock/2020-yiqi-summer-school/master/slides.pdf][slides]]. Program 2 Part 2 due Fri Feb 26.
 - Week 8, Mar 1: [[file:homework/4.org][Ch4 Homework]] due Mon Mar 1. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Docs/Exam1%20Review%20sheet.pdf][Mid-term review]], [[file:exams.org][sample]], and exam Fri Mar 5.
-- Week 9, Mar 8: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] Proposal and presentation. Program 3
-  part 1 due Fri Mar 12.
+- Week 9, Mar 8: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] 5-10 minute presentation: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-MidTermPresentation.pdf][guidelines]],
+  [[https://docs.google.com/spreadsheets/d/1_Xl5cOB4lSBkQDS1WNoefugr8xMpNz125wObo4TCr8g/edit?usp=sharing][signup]]. Program 3 part 1 due Fri Mar 12.
 - Week 10, Mar 15: Program 3 part 2 due Fri Mar 19.
 - Week 11, Mar 22: Chapter 5 lecture.
 - Week 12, Mar 29: Chapter 13 lecture. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] draft paper due.

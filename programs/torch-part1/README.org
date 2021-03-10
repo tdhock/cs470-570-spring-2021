@@ -57,10 +57,17 @@ You should create a Python script:
 - implement two neural networks:
   - LeNet, [[https://www.bigrabbitdata.com/pytorch-10-mnist-with-convolutional-neural-network/][as described here]]. 
   - Fully connected network, [[https://www.bigrabbitdata.com/pytorch-8-image-recognition-mnist-datasets-multiclass-classification/][as described here]].
-- use a for loop over the two networks, and over epochs of learning. in each
-  iteration you should
-  - take a step using one of the optimizers (e.g., SGD) and a batch
-    size of your choice.
+- if possible use a for loop over the two networks, to simplify your
+  code. If you want to use a network-specific optimizer (e.g., SGD for
+  fully connected network and ADAM for convolutional network), you can
+  make the optimizer instance an attribute of the network class.
+- use a for loop over epochs of learning. An epoch is defined as the
+  number of steps it takes for the learning algorithm to see the
+  entire subtrain set. For batch size = 1 and subtrain set size = N
+  there are N steps per epoch; for batch size k there are
+  approximately N/k steps per epoch. In each epoch you should
+  - take one or more steps using one of the optimizers (e.g., SGD) and
+    a batch size of your choice.
   - compute loss with respect to entire subtrain and validation sets.
   - print these values on the screen and log these loss values to the
     tensorboard writer e.g.,
@@ -86,8 +93,7 @@ the validation loss should be U-shaped.
   to decrease the step size (learning rate = lr parameter of
   optimizers).
 - If the validation loss is not U-shaped, then you probably need to
-  increase the number of iterations/epochs, or increase the learning
-  rate.
+  increase the number of iterations/epochs, or increase the step size.
 
 ** Deliverables for part 1
 
@@ -97,7 +103,7 @@ Deliverable should be a PDF uploaded to bblearn with
   - What was the batch size / learning rate / max number of epochs you used?
   - What was the number of epochs that minimized the validation set?
 - Python code.
-
+  
 ** Hints 
 
 if you are adapting [[file:single_hidden_layer.py][my python script for 1d regression with one
