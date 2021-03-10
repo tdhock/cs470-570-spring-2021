@@ -218,9 +218,7 @@ neural network for $d=10$ inputs/features with one hidden layer with
 $u=100$ units? (one output unit, ten output units)
 \end{frame}
 
-
-
-\section{Forward and Back-propagation algorithms}
+\section{Computing gradients and learning weights}
 
 \begin{frame}
   \frametitle{Gradient descent learning}
@@ -252,7 +250,7 @@ $u=100$ units? (one output unit, ten output units)
   \includegraphics[width=0.9\textwidth]{screenshot-gradient-descent}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Basic full gradient descent algorithm}
   \begin{itemize}
   \item Initialize weights $\mathbf W_0$ at some random values near
@@ -264,10 +262,19 @@ $u=100$ units? (one output unit, ten output units)
 $$
 \item This is the \textbf{full} gradient method: batch size = $n$ =
   subtrain set size, so 1 step per epoch/iteration.
-  \end{itemize}
+\end{itemize}
+
+\begin{verbatim}
+optimizer = torch.optim.SGD(net.parameters(), lr=0.03)
+optimizer.zero_grad()
+predictions = net(subtrain_inputs)
+subtrain_loss = criterion(predictions, subtrain_outputs)
+subtrain_loss.backward()
+optimizer.step()
+\end{verbatim}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Stochastic gradient descent algorithm}
   \begin{itemize}
   \item Initialize weights $\mathbf W$ at some random values near
@@ -276,15 +283,25 @@ $$
   \item for each batch $i$ from 1 to $n$:
   \item Let $\mathcal L( \mathbf W, \mathbf X_i, \mathbf y_i )$ be the loss with
     respect to the single observation in batch $i$.
-  $$
+$$
 \mathbf W \gets \mathbf W - \alpha \nabla \mathcal L(\mathbf W, \mathbf X_i, \mathbf y_i)
 $$
 \item This is the \textbf{stochastic} gradient method: batch size = 1,
   so there are $n$ steps per epoch.
-  \end{itemize}
+\end{itemize}
+
+\begin{verbatim}
+optimizer = torch.optim.SGD(net.parameters(), lr=0.03)
+optimizer.zero_grad()
+prediction = net(one_input)
+one_loss = criterion(prediction, one_output)
+one_loss.backward()
+optimizer.step()
+\end{verbatim}
+
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Batch (stochastic) gradient descent algorithm}
   \begin{itemize}
   \item Input: batch size $b$.
@@ -299,7 +316,17 @@ $$
 $$
 \item This is the \textbf{(mini)batch} stochastic gradient method:
   batch size = $b$, so there are $\lceil n/b \rceil$ steps per epoch.
-  \end{itemize}
+\end{itemize}
+
+\begin{verbatim}
+optimizer = torch.optim.SGD(net.parameters(), lr=0.03)
+optimizer.zero_grad()
+prediction = net(batch_inputs)
+batch_loss = criterion(prediction, batch_outputs)
+batch_loss.backward()
+optimizer.step()
+\end{verbatim}
+
 \end{frame}
 
 \begin{frame}[fragile]
