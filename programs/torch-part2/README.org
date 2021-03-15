@@ -1,0 +1,167 @@
+Program 3: image classification
+
+** Overview
+
+In the second part your goal is to
+- use FashionMNIST data. For extra credit do the same analysis on
+  another MNIST-like data set (MNIST, EMNIST, KMNIST).
+- compute 3 test error values for each model and data set using 3-fold
+  cross-validation.
+- use three models: (1) featureless, (2) convolutional, (3) fullyConnected.
+
+** Sample code / relevant docs
+
+- [[https://pytorch.org/docs/stable/data.html][torch.utils.data docs]], useful for e.g., Subset operator when doing
+  K-fold CV. Please read the torch docs!
+- [[https://www.machinecurve.com/index.php/2021/02/03/how-to-use-k-fold-cross-validation-with-pytorch/#why-using-train-test-splits-for-model-evaluation][Tutorial on K-Fold cross-validation with MNIST data]]. 
+
+** Your task for part 1
+
+Last time you used the FashionMNIST train data (60,000
+observations). For part 2 to save time, please use the test version of
+both data sets (10,000 observations), and consider each as the "full"
+(not test) version of that data set, e.g.
+
+#+begin_src python
+  from torchvision import datasets
+  from torchvision.transforms import ToTensor
+  full_data_dict = {}
+  for data_name in ["FashionMNIST"]:
+      data_loader = getattr(datasets, data_name)
+      full_data_dict[data_name] = data_loader(
+	  root="data",
+	  train=False,
+	  download=True,
+	  transform=ToTensor()
+      )
+#+end_src
+
+Note when choosing your extra credit data set there is a recent bug in
+the regular "MNIST" data downloader, [[https://stackoverflow.com/questions/66467005/torchvision-mnist-httperror-http-error-403-forbidden][fix described here]]. So you may
+want to choose one of the other MNIST-like data sets (KMNIST, EMNIST).
+
+Then for each data set use 3-fold CV which generates 3 train/test
+splits per data set. Since each full data set should have 10,000
+observations, your train set size should be 6,667 and your test
+set size should be 3,333.
+
+For each train/test split, you should run your code from part 1 on the
+train set. That code splits the train set into one subtrain/validation
+split, then computes subtrain/validation loss for each epoch. You
+should additionally implement early stopping regularization -- select
+the number of epochs which minimizes the validation loss, and print it
+out, like:
+
+#+begin_src 
+DATA=FashionMNIST model=convolutional testFold=0 selectedEpochs=568
+DATA=FashionMNIST model=convolutional testFold=1 selectedEpochs=412
+DATA=FashionMNIST model=convolutional testFold=2 selectedEpochs=878
+#+end_src
+
+Now you know the good number of epochs (for this particular train
+set), so restart the learning (initialize a new neural network
+instance), and now compute gradients using the train data (rather than
+the subtrain data). You should write a helper function which fits a
+neural network on a given data set for a certain number of iterations,
+so your code should look something like this,
+
+#+begin_src python
+  MAX_EPOCHS = 10000
+  def TestErrorOneSplit(data_name, testFold, model):
+      train_set, test_set = getTrainTestData(data_name, testFold)
+      if model == "featureless":
+	  test_predictions = getMostFrequentLabel(train_set)
+      else:
+	  subtrain_set, validation_set = splitData(train_set)
+	  subtrain_net = newModel(model)
+	  subtrain_result = learn(
+	      subtrain_net, subtrain_set, MAX_EPOCHS, validation=validation_set)
+	  selected_epochs = getBestEpochs(subtrain_result["validation_loss"])
+	  print("DATA=%s model=%s testFold=%d selectedEpochs=%d" % (
+	      data_name, model, testFold, selected_epochs))
+	  train_net = newModel(model)
+	  learn(train_net, train_set, selected_epochs)
+	  test_predictions = PredictOnSet(train_net, test_set["input"])
+      return PercentError(test_predictions, test_set["output"])
+#+end_src
+
+Where the subroutines above should implement:
+- getTrainTestData: just split a data set into train and test sets,
+  using the given testFold ID for the test set. This means that all
+  observations in the data set should have previously been assigned a
+  fold ID from 1 to 3, and here you are just selecting which
+  observations to assign to each set.
+- getMostFrequentLabel: for the featureless model, you should always
+  predict the most frequent label in the train set (this ignores all
+  inputs/features). So just count up the number of times each label
+  appears, and return the label value (0-9) which appears most
+  frequently.
+- splitData: splits the train set into subtrain and validation sets,
+  as you did in part 1 (hint: if you are careful you can combine this
+  logic with getTrainTestData to avoid duplicated code).
+- newModel: instantiates a new neural network object, so you can
+  re-train from scratch (un-informative weights).
+- learn(net, set, epochs, validation) does epochs updates on net,
+  using gradients from set, and optionally computes loss with respect
+  to held out validation data. Should at least return the validation
+  loss so you can compute the number of epochs that minimizes it.
+- PredictOnSet computes a vector of predicted class IDs (0-9).
+- PercentError computes the percent of incorrectly predicted labels in
+  the test set (0-100).
+
+You should implement/test three different models:
+
+- featureless: always predict the same value for any possible input
+  (just use the most frequent label in the train data).
+- convolutional: same convolutional neural network as in part 1.
+- fullyConnected: same fully connected neural network as in part 1.
+
+Then use for loops over data sets, test folds, and models, as in the
+code below:
+
+#+begin_src python
+  NUM_TEST_FOLDS = 3
+  for data_name in DATA_SETS:
+      for testFold in range(NUM_TEST_FOLDS):
+	  for model in "featureless", "fullyConnected", "convolutional":
+	      computeTestError(data_name, testFold, model)
+#+end_src
+
+After computing test error, at least print it out to the screen. Even
+better, save it to a file on disk, e.g.,
+results/FashionMNIST/testFold1/fullyConnected.csv and then you can use
+that for caching/restarting (if the csv file does not exist, then
+compute test error and save csv file, otherwise read test error from
+that csv file).
+
+** Deliverables for part 2
+
+Deliverable should be a PDF uploaded to bblearn with
+- cover page
+- result printouts along with your comments / interpretation.
+  - What was the batch size / learning rate / max number of epochs you
+    used? Typically these should not vary between train/test splits,
+    but can vary between models.
+  - What was the number of epochs that minimized the validation loss?
+    What was the test error percent? This should be different for
+    every data set / model / test fold.
+  - Are the two neural networks more accurate (less test
+    error) than the baseline featureless model?
+  - Is one of the neural networks more accurate than the other?
+  - If you analyzed more than one data set, does one of the data sets
+    have a pattern that is more difficult for the neural networks to
+    learn? On more difficult data sets, the same model will get higher
+    test error / lower test accuracy.
+- Python code.
+
+IMPORTANT: the SELECTED number of epochs should always be less than
+the MAX number of epochs.
+- If the selected number of epochs is equal to the max number of
+  epochs, that means your neural networks are underfitting, and you
+  need to increase the max number of epochs.
+
+** FAQ
+
+- [[https://towardsdatascience.com/pytorch-switching-to-the-gpu-a7c0b21e8a99][How to use gpu for training]]?
+
+

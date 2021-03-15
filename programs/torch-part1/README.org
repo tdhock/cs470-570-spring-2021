@@ -101,7 +101,7 @@ Deliverable should be a PDF uploaded to bblearn with
 - cover page
 - result figures along with your comments / interpretation.
   - What was the batch size / learning rate / max number of epochs you used?
-  - What was the number of epochs that minimized the validation set?
+  - What was the number of epochs that minimized the validation loss?
 - Python code.
   
 ** Hints 
@@ -120,3 +120,8 @@ hidden layer]]:
   1d regression, 28x28 inputs for FashionMNIST.
 - The number of outputs is different: 1 output for 1d regression, 10
   outputs for FashionMNIST.
+** FAQ
+
+- [[https://towardsdatascience.com/pytorch-switching-to-the-gpu-a7c0b21e8a99][How to use gpu for training]]?
+
+
