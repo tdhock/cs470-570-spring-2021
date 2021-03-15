@@ -15,7 +15,7 @@ In the second part your goal is to
   K-fold CV. Please read the torch docs!
 - [[https://www.machinecurve.com/index.php/2021/02/03/how-to-use-k-fold-cross-validation-with-pytorch/#why-using-train-test-splits-for-model-evaluation][Tutorial on K-Fold cross-validation with MNIST data]]. 
 
-** Your task for part 1
+** Your task for part 2
 
 Last time you used the FashionMNIST train data (60,000
 observations). For part 2 to save time, please use the test version of
