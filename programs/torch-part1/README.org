@@ -32,7 +32,7 @@ Here is some torch code that implements [[https://raw.githubusercontent.com/tdho
 Here are tutorials that show you how to load, visualize, and transform
 the Fashion MNIST data set.
 - [[https://pytorch.org/tutorials/beginner/basics/data_tutorial.html][Tutorial for Fashion MNIST data set]].
-- [[https://pytorch.org/tutorials/beginner/basics/transforms_tutorial.html][Tutorial for transforming inputs to min=0 max=1 and output to one-hot vector]].
+- [[https://pytorch.org/tutorials/beginner/basics/transforms_tutorial.html][Tutorial for transforming inputs to min=0 max=1]].
 
 Here is a tutorial that shows you how to visualize data from training
 runs on tensorboard,
@@ -44,13 +44,14 @@ Please read the torch docs!
 
 You should create a Python script:
 - download the Fashion MNIST train data.
-- transform it for training, inputs in [0,1], outputs are one-hot
-  encoded.
-- randomly assign a fold ID from 0 to 5 to each observation (6-fold
-  cross-validation). 
-- use fold ID=0 as a validation set, use all other folds as a subtrain
-  set. Since there are 60,000 observations in the train set, there
-  should be 10,000 validation, 50,000 subtrain.
+- transform it for training, inputs in [0,1].
+- randomly split the train set into 1/6 validation, 5/6 subtrain (as
+  in 6-fold cross-validation). Since there are 60,000 observations in
+  the train set, there should be 10,000 validation, 50,000
+  subtrain. An easy way to do that is with
+  [[https://pytorch.org/docs/stable/data.html][torch.utils.data.random_split]]. If it is slow on your computer to use
+  the full data, it is OK to reduce the data sizes (e.g., 1000
+  validation, 5000 subtrain).
 - begin by initializing two [[https://pytorch.org/docs/stable/tensorboard.html?highlight=summarywriter#torch.utils.tensorboard.writer.SummaryWriter][SummaryWriter]] instances, one for subtrain,
   one for validation.
 - the loss function you should use is [[https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html?highlight=crossentropy#torch.nn.CrossEntropyLoss][torch.nn.CrossEntropyLoss]].
@@ -123,5 +124,28 @@ hidden layer]]:
 ** FAQ
 
 - [[https://towardsdatascience.com/pytorch-switching-to-the-gpu-a7c0b21e8a99][How to use gpu for training]]?
-
-
+- Do outputs need to be one-hot encoded? (binary vector indicating
+  class) Actually NO, the [[https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html?highlight=crossentropy#torch.nn.CrossEntropyLoss][CrossEntropyLoss]] docs say that target should
+  be an integer vector, so no need to one-hot encode.
+- How can I speed up my calculations? Instead of using the full data,
+  try reducing the data size, e.g., 1000 validation, 5000
+  subtrain. The important thing is to see the characteristic
+  decreasing subtrain loss, and U shaped validation loss.
+- What is a good value for max epochs? It depends on a lot of other
+  variables (data size, learning rate, batch size). In general the
+  more data you have the more epochs you will need to learn, the lower
+  learning rate the larger number of epochs you will need, and the
+  lower batch size the more epochs. Typically 10-100 is too small, and
+  1000-10000 is more typical. If the validation loss is decreasing
+  (not U shaped) then you are underfitting and you need to increase
+  the max epochs.
+- How to fix RuntimeError: Expected 4-dimensional input for
+  4-dimensional weight [6, 1, 5, 5], but got 3-dimensional input of
+  size [1, 28, 28] instead? This refers to incompatibility of the
+  Conv2d operator with the input (here a single image with one
+  channel, 28x28 pixels). Fix by adding a dimension to the input for
+  observations, e.g. by using
+- How to fix RuntimeError: mat1 and mat2 shapes cannot be multiplied
+  (2800x28 and 784x300)? This is because the fully connected network
+  needs a flat (1d) input vector. Use [[https://pytorch.org/docs/stable/generated/torch.flatten.html][torch.flatten]] as the first step
+  in your forward method of your fully connected network.
