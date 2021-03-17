@@ -52,7 +52,7 @@ You should create a Python script:
   one for validation. (even before that in your script, you should
   remove the log directories so that you have fresh logs every time
   you re-run your script)
-- implement two neural networks:
+- implement [[file:networks.py][two neural networks]]:
   - LeNet, [[https://www.bigrabbitdata.com/pytorch-10-mnist-with-convolutional-neural-network/][as described here]]. 
   - Fully connected network, [[https://www.bigrabbitdata.com/pytorch-8-image-recognition-mnist-datasets-multiclass-classification/][as described here]], but with the first
     step in forward using torch.flatten so that each input is
