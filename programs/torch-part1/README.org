@@ -3,7 +3,11 @@ Program 3: image classification
 ** Overview
 
 In this project your goal is to create an image classification system
-using the torch module for neural networks in python.
+using the torch module for neural networks in python. For the first
+part you will do a subtrain/validation split with two different neural
+networks, compute gradients and network weight update steps using the
+subtrain set, then compute subtrain/validation loss and plot it
+against the number of epochs.
 
 ** Installation
 
@@ -26,7 +30,8 @@ rm -r runs && python single_hidden_layer.py && tensorboard --logdir=runs
 
 ** Sample code
 
-Here is some torch code that implements [[https://raw.githubusercontent.com/tdhock/2020-yiqi-summer-school/master/slides.pdf][the regression model we saw in class lecture slides]]: 
+Here is some torch code that implements [[https://raw.githubusercontent.com/tdhock/2020-yiqi-summer-school/master/slides.pdf][the regression model we saw in
+class lecture slides]]:
 - [[file:single_hidden_layer.py][Code for 1d regression using neural network with one hidden layer]].
 
 Here are tutorials that show you how to load, visualize, and transform
@@ -43,25 +48,53 @@ Please read the torch docs!
 ** Your task for part 1
 
 You should create a Python script:
-- download the Fashion MNIST train data.
-- transform it for training, inputs in [0,1].
-- randomly split the train set into 1/6 validation, 5/6 subtrain (as
-  in 6-fold cross-validation). Since there are 60,000 observations in
-  the train set, there should be 10,000 validation, 50,000
-  subtrain. An easy way to do that is with
-  [[https://pytorch.org/docs/stable/data.html][torch.utils.data.random_split]]. If it is slow on your computer to use
-  the full data, it is OK to reduce the data sizes (e.g., 1000
-  validation, 5000 subtrain).
 - begin by initializing two [[https://pytorch.org/docs/stable/tensorboard.html?highlight=summarywriter#torch.utils.tensorboard.writer.SummaryWriter][SummaryWriter]] instances, one for subtrain,
-  one for validation.
-- the loss function you should use is [[https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html?highlight=crossentropy#torch.nn.CrossEntropyLoss][torch.nn.CrossEntropyLoss]].
+  one for validation. (even before that in your script, you should
+  remove the log directories so that you have fresh logs every time
+  you re-run your script)
 - implement two neural networks:
   - LeNet, [[https://www.bigrabbitdata.com/pytorch-10-mnist-with-convolutional-neural-network/][as described here]]. 
-  - Fully connected network, [[https://www.bigrabbitdata.com/pytorch-8-image-recognition-mnist-datasets-multiclass-classification/][as described here]].
-- if possible use a for loop over the two networks, to simplify your
-  code. If you want to use a network-specific optimizer (e.g., SGD for
-  fully connected network and ADAM for convolutional network), you can
-  make the optimizer instance an attribute of the network class.
+  - Fully connected network, [[https://www.bigrabbitdata.com/pytorch-8-image-recognition-mnist-datasets-multiclass-classification/][as described here]], but with the first
+    step in forward using torch.flatten so that each input is
+    represented as a 784-vector (1d tensor with that many elements).
+- set up a transform using Compose, Resize, ToTensor from
+  torchvision.transforms, which will convert each input into a 28x28
+  Tensor.
+- download the Fashion MNIST train data using
+  torchvision.datasets.FashionMNIST (use train=True and transform=the
+  transformation you created in the previous step). This will
+  automatically rescale inputs to [0,1] so you dont need any
+  additional step to do that (also no need to transform the outputs to
+  a one hot encoding -- the torch CrossEntropyLoss accepts integer
+  valued target outputs for classification problems).
+- randomly split the train set into 1/6 validation, 5/6 subtrain (as
+  in 6-fold cross-validation). If you use the full 60,000 observations
+  in the train set (extra credit), there should be 10,000 validation,
+  50,000 subtrain. An easy way to do that is with
+  [[https://pytorch.org/docs/stable/data.html][torch.utils.data.random_split]]. If it is slow on your computer to use
+  the full data, it is OK to reduce the data sizes (e.g., for
+  debugging try 100 validation, 500 subtrain). To reduce repetition in
+  your code, try defining a dictionary of sizes and then referring the
+  set names and sizes defined therein, e.g., {"subtrain":5000,
+  "validation":1000}
+- Make a torch.utils.data.DataLoader for each set
+  (subtrain/validation), which you will use later to compute the loss
+  in each epoch with respect to all examples in the
+  subtrain/validation sets. Also make a DataLoader for the subtrain
+  set that you will use for computing gradients and weight update
+  steps -- in this one you can specify a batch_size argument which
+  will be used to determine how many subtrain observations are used to
+  compute gradients for one step. (the subtrain DataLoaders for
+  computing gradients and loss can be the same or different, your
+  choice)
+- Make an instance of the loss function you should use for
+  classification, [[https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html?highlight=crossentropy#torch.nn.CrossEntropyLoss][torch.nn.CrossEntropyLoss]].
+- use a for loop over the two networks, to simplify your code. 
+- For each network, begin by instantiating an optimizer. If you want
+  to use a network-specific optimizer (e.g., torch.optim.SGD for fully
+  connected network and torch.optim.Adam for convolutional network),
+  you can make the optimizer instance an attribute of the network
+  class.
 - use a for loop over epochs of learning. An epoch is defined as the
   number of steps it takes for the learning algorithm to see the
   entire subtrain set. For batch size = 1 and subtrain set size = N
@@ -69,12 +102,25 @@ You should create a Python script:
   approximately N/k steps per epoch. In each epoch you should
   - take one or more steps using one of the optimizers (e.g., SGD) and
     a batch size of your choice.
-  - compute loss with respect to entire subtrain and validation sets.
+    - this means writing a for loop over batches using your DataLoader
+      (for x,y in data_loader).
+    - for each batch, first compute predictions, then compute loss,
+      then zero the gradient via optimizer.zero_grad(), then call
+      loss.backward() to compute gradients, then call optimizer.step()
+      to update the neural network weights using the gradients.
+  - compute loss with respect to entire subtrain and validation
+    sets. You should have a for loop over sets (subtrain/validation)
+    and batches within each set. Compute the total or average loss
+    over all batches, for each set. 
   - print these values on the screen and log these loss values to the
     tensorboard writer e.g.,
 
 #+begin_src python
-writer[set].add_scalar(network._get_name()+'/loss', loss, epoch)
+  # I used a dictionary with three keys (epoch/subtrain/validation) to
+  # store and then print these values.
+  print('epoch=%(epoch)4d subtrain=%(subtrain)f validation=%(validation)f' % loss_dict)
+  # log to SummaryWriter instance for visualization on TensorBoard.
+  writer[set_name].add_scalar(network._get_name()+'/loss', loss, epoch)
 #+end_src
 
 After that please load the saved data into tensorboard for
@@ -100,27 +146,32 @@ the validation loss should be U-shaped.
 
 Deliverable should be a PDF uploaded to bblearn with
 - cover page
-- result figures along with your comments / interpretation.
-  - What was the batch size / learning rate / max number of epochs you used?
+- result figures along with your comments / interpretation. For each
+  network,
+  - Show the plot of subtrain/validation loss versus number of epochs.
+  - What was the optimization algorithm (SGD, Adam, etc) / batch size
+    / learning rate / max number of epochs you used?
   - What was the number of epochs that minimized the validation loss?
+  - If you did the extra credit (used all 60,000 observations in train
+    set) then please mention that.
 - Python code.
   
 ** Hints 
 
-if you are adapting [[file:single_hidden_layer.py][my python script for 1d regression with one
+If you are adapting [[file:single_hidden_layer.py][my python script for 1d regression with one
 hidden layer]]:
 - The loss function is different: mean squared error for regression,
   cross-entropy loss for classification.
 - There is a for loop over three data sets (pattern variable), which
   you don't need for part 1, but you may want to keep for part 2
-  (which requires running your models on both MNIST/digits and
-  FashionMNIST data).
-- Use [[https://pytorch.org/docs/stable/data.html][DataLoader]] subclass [[https://pytorch.org/vision/0.8/datasets.html#fashion-mnist][FashionMNIST]] instead of loading data using
+  (running your models on both MNIST/digits and FashionMNIST data).
+- Use [[https://pytorch.org/docs/stable/data.html][DataLoader]] and [[https://pytorch.org/vision/0.8/datasets.html#fashion-mnist][FashionMNIST]] instead of loading data using
   pandas.
 - The number of inputs to the neural network is different: 1 input for
   1d regression, 28x28 inputs for FashionMNIST.
 - The number of outputs is different: 1 output for 1d regression, 10
   outputs for FashionMNIST.
+
 ** FAQ
 
 - [[https://towardsdatascience.com/pytorch-switching-to-the-gpu-a7c0b21e8a99][How to use gpu for training]]?
@@ -132,13 +183,15 @@ hidden layer]]:
   subtrain. The important thing is to see the characteristic
   decreasing subtrain loss, and U shaped validation loss.
 - What is a good value for max epochs? It depends on a lot of other
-  variables (data size, learning rate, batch size). In general the
-  more data you have the more epochs you will need to learn, the lower
-  learning rate the larger number of epochs you will need, and the
-  lower batch size the more epochs. Typically 10-100 is too small, and
-  1000-10000 is more typical. If the validation loss is decreasing
-  (not U shaped) then you are underfitting and you need to increase
-  the max epochs.
+  variables (data size, learning rate, batch size, optimizer). In
+  general the more data you have the more epochs you will need to
+  learn, and the lower learning rate the larger number of epochs you
+  will need. If the validation loss is decreasing (not U shaped) then
+  you are underfitting and you need to increase the max epochs. I
+  found that with a subset of the data (5000 subtrain), max epochs=100
+  with a batch size of 100, and learning rate = 0.01 with the Adam
+  optimizer, was sufficient to see the U shaped validation loss curve
+  for both networks.
 - How to fix RuntimeError: Expected 4-dimensional input for
   4-dimensional weight [6, 1, 5, 5], but got 3-dimensional input of
   size [1, 28, 28] instead? This refers to incompatibility of the
