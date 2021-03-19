@@ -419,30 +419,95 @@ backpropagation (0-3).
 
 \end{frame}
 
-\section{Convolutional networks}
+\section{Convolutional networks and pooling}
+
+\begin{frame}
+  \frametitle{Convolution is a linear operator for spatial data}
+  Useful for data which have spatial dimension(s) such as time series
+  (1 dim) or images (2 dim). Simple example with 1 dim:
+  \begin{itemize}
+  \item $x = [ x_1, \dots, x_D ]$ is an input vector (array of $D$ data).
+  \item $w = [ w_1, \dots, w_P ]$ is a kernel (array of $P$ parameters
+    / weights to learn), $P<D$.
+  \item $h = [ h_1, \dots, h_U ]$ is an output vector of $U=d-p+1$
+    hidden units. Convolution (actually cross-correlation) is used to
+    define each hidden unit:
+    $\forall u\in\{1,\dots,U\}, h_u = \sum_{p=1}^P w_p x_{u+p} $.
+\item EX: $D=3$ inputs, $P=2$ parameters $\Rightarrow U=2$ output units:
+  \begin{eqnarray*}
+    h_1 &=& w_1 x_1 + w_2 x_2 \text{ (convolutional=sparse+shared)}\\ 
+    h_2 &=& w_1 x_2 + w_2 x_3 \text{ (convolutional=sparse+shared)}\\
+    h_1 &=& w_{1,1} x_1 + w_{1,2} x_2 + w_{1,3} x_3 \text{ (fully connected/dense)}\\ 
+    h_2 &=& w_{2,1} x_1 + w_{2,2} x_2 + w_{2,3} x_3 \text{ (fully connected/dense)} 
+  \end{eqnarray*}
+\item Compare with fully connected -- convolutional means weights are
+  shared among outputs, and some are zero/sparse.
+  \end{itemize}
+\end{frame}
 
 \begin{frame}
   \frametitle{Difference in connectivity and weight sharing}
   \includegraphics[width=\textwidth]{figure-convolutional-3-2}
-  
 \end{frame}
 
 \begin{frame}
   \frametitle{Difference in connectivity and weight sharing}
-  \includegraphics[width=\textwidth]{figure-convolutional-6-3}
-  
+  \includegraphics[width=\textwidth]{figure-convolutional-filters-3-2-1}
+
+  Abbreviations: p=parameter, f=filter, u=unit.
+  e.g., p2,f1=parameter 2 of filter 1. u2,f1=unit 2 using filter 1.
 \end{frame}
 
 \begin{frame}
   \frametitle{Two filters}
-  \includegraphics[width=\textwidth]{figure-convolutional-filters-3-2}
+  \includegraphics[width=\textwidth]{figure-convolutional-filters-3-2-2}
   
+  Abbreviations: p=parameter, f=filter, u=unit.
+  e.g., p2,f1=parameter 2 of filter 1. u2,f1=unit 2 using filter 1.
 \end{frame}
 
 \begin{frame}
-  \frametitle{Two filters}
-  \includegraphics[width=\textwidth]{figure-convolutional-filters-6-3}
+  \frametitle{Multiple kernels/filters or sets of weights}
+  \begin{itemize}
+  \item $x = [ x_1, \dots, x_D ]$ is an input vector (array of $D$ data).
+  \item $w = \begin{bmatrix}
+      w_{1,1} & \cdots & w_{1,P} \\
+      \vdots & \ddots & \vdots \\
+      w_{K,1} & \cdots & w_{K,P}
+    \end{bmatrix}$ is a matrix of $K$ kernels,\\each row is an array of
+    $P$ parameters / weights to learn, $P<D$.
+  \item $h = \begin{bmatrix}
+      h_{1,1} & \dots & h_{1,U} \\
+      \vdots & \ddots & \vdots \\
+      h_{K,1} & \cdots & h_{K,U}
+      \end{bmatrix}$ is an output matrix of
+      hidden units. \\
+      Each row is computing by applying a kernel to the input:
+      $$
+      \forall u\in\{1,\dots,U\},
+      \forall k\in\{1,\dots,K\},
+      h_{k,u} = \sum_{p=1}^P w_{k,p} x_{u+p}
+      $$
+    \item EX in previous slide: $D=3$ inputs, $P=2$ parameters per
+      kernel, $K=2$ kernels $\Rightarrow U=2$ output units per kernel,
+      4 output units total.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A more complex example (one filter)}
+  \includegraphics[width=\textwidth]{figure-convolutional-filters-6-3-1}
   
+  Abbreviations: p=parameter, f=filter, u=unit.
+  e.g., p2,f1=parameter 2 of filter 1. u2,f1=unit 2 using filter 1.
+\end{frame}
+
+\begin{frame}
+  \frametitle{A more complex example (two filters)}
+  \includegraphics[width=\textwidth]{figure-convolutional-filters-6-3-2}
+   
+  Abbreviations: p=parameter, f=filter, u=unit.
+  e.g., p2,f1=parameter 2 of filter 1. u2,f1=unit 2 using filter 1.
 \end{frame}
 
 \end{document}

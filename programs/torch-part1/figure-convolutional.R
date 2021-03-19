@@ -13,10 +13,10 @@ for(figs.i in 1:nrow(figs.dt)){
   )]
   g.args <- lapply(units.per.layer, function(N)1:N)
   full.grid.dt <- data.table(do.call(expand.grid, g.args))
-  full.grid.dt[, fully.connected := paste0(input, ",", output)]
-  full.grid.dt[, convolutional := input-output]
+  full.grid.dt[, fully.connected := paste0(output, ",", input)]
+  full.grid.dt[, convolutional := input-output+1]
   full.grid.dt[
-    convolutional < 0 | convolutional > kernel.width,
+    convolutional <= 0 | convolutional-1 > kernel.width,
     convolutional := NA]
   node.dt.list <- list()
   for(layer.i in seq_along(units.per.layer)){
@@ -59,8 +59,9 @@ for(figs.i in 1:nrow(figs.dt)){
       xend=output.layer, yend=output.y),
       data=edge.dt)+
     geom_label(aes(
-      cc(input.layer, output.layer, subscript), cc(input.y, output.y, subscript),
-      label=subscript),
+      cc(input.layer, output.layer, subscript),
+      cc(input.y, output.y, subscript),
+      label=paste0("w", subscript)),
       data=edge.dt)+
     geom_point(aes(
       layer.i, y),
@@ -69,7 +70,8 @@ for(figs.i in 1:nrow(figs.dt)){
       fill="white",
       data=node.dt)+
     geom_text(aes(
-      layer.i, y, label=unit.i),
+      layer.i, y, label=paste0(ifelse(
+        layer.i==1, "x", "h"), unit.i)),
       data=node.dt)+
     scale_x_continuous("Layer", breaks=unique(node.dt$layer.i))+
     scale_y_continuous("Units", breaks=NULL)+
@@ -82,3 +84,4 @@ for(figs.i in 1:nrow(figs.dt)){
   print(gg)
   dev.off()
 }
+
