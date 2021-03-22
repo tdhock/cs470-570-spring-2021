@@ -5,14 +5,15 @@ Program 3: image classification
 In the second part your goal is to
 - use FashionMNIST data. For extra credit do the same analysis on
   another MNIST-like data set (MNIST, EMNIST, KMNIST).
-- compute 3 test error values for each model and data set using 3-fold
-  cross-validation.
 - use three models: (1) featureless, (2) convolutional, (3) fullyConnected.
+- for each model, compute and report test error rates. For extra
+  credit, use three train/test splits and report test error rates on
+  all three test sets.
 
 ** Sample code / relevant docs
 
-- [[https://pytorch.org/docs/stable/data.html][torch.utils.data docs]], useful for e.g., Subset operator when doing
-  K-fold CV. Please read the torch docs!
+- [[https://pytorch.org/docs/stable/data.html][torch.utils.data docs]], useful for e.g., Subset/random_split operator
+  when doing K-fold CV. Please read the torch docs!
 - [[https://www.machinecurve.com/index.php/2021/02/03/how-to-use-k-fold-cross-validation-with-pytorch/#why-using-train-test-splits-for-model-evaluation][Tutorial on K-Fold cross-validation with MNIST data]]. 
 
 ** Your task for part 2
@@ -26,7 +27,7 @@ both data sets (10,000 observations), and consider each as the "full"
   from torchvision import datasets
   from torchvision.transforms import ToTensor
   full_data_dict = {}
-  for data_name in ["FashionMNIST"]:
+  for data_name in ["FashionMNIST"]: # For Extra Credit add another data set.
       data_loader = getattr(datasets, data_name)
       full_data_dict[data_name] = data_loader(
 	  root="data",
@@ -40,10 +41,24 @@ Note when choosing your extra credit data set there is a recent bug in
 the regular "MNIST" data downloader, [[https://stackoverflow.com/questions/66467005/torchvision-mnist-httperror-http-error-403-forbidden][fix described here]]. So you may
 want to choose one of the other MNIST-like data sets (KMNIST, EMNIST).
 
-Then for each data set use 3-fold CV which generates 3 train/test
-splits per data set. Since each full data set should have 10,000
-observations, your train set size should be 6,667 and your test
-set size should be 3,333.
+Then for each data set use at least one 2/3 train, 1/3 test
+split. Since each full data set should have 10,000 observations, your
+train set size should be 6,667 and your test set size should be
+3,333. If you don't want to do the extra credit, just use a single
+random_split:
+
+#+begin_src python
+test_data, train_data = torch.utils.data.random_split(
+    full_data,
+    (3333, 6667)
+)
+#+end_src
+
+For extra credit you should either do random_split 3 times (with three
+different random seeds, so you get three different train/test splits),
+or do 3-fold cross-validation (assign fold IDs from 1 to 3 to each
+observation then loop over fold IDs, treating each fold ID as a test
+set).
 
 For each train/test split, you should run your code from part 1 on the
 train set. That code splits the train set into one subtrain/validation
@@ -67,8 +82,8 @@ so your code should look something like this,
 
 #+begin_src python
   MAX_EPOCHS = 10000
-  def TestErrorOneSplit(data_name, testFold, model):
-      train_set, test_set = getTrainTestData(data_name, testFold)
+  def TestErrorOneSplit(data_name, splitNum, model):
+      train_set, test_set = getTrainTestData(data_name, splitNum)
       if model == "featureless":
 	  test_predictions = getMostFrequentLabel(train_set)
       else:
@@ -77,8 +92,8 @@ so your code should look something like this,
 	  subtrain_result = learn(
 	      subtrain_net, subtrain_set, MAX_EPOCHS, validation=validation_set)
 	  selected_epochs = getBestEpochs(subtrain_result["validation_loss"])
-	  print("DATA=%s model=%s testFold=%d selectedEpochs=%d" % (
-	      data_name, model, testFold, selected_epochs))
+	  print("DATA=%s model=%s splitNum=%d selectedEpochs=%d" % (
+	      data_name, model, splitNum, selected_epochs))
 	  train_net = newModel(model)
 	  learn(train_net, train_set, selected_epochs)
 	  test_predictions = PredictOnSet(train_net, test_set["input"])
@@ -86,11 +101,10 @@ so your code should look something like this,
 #+end_src
 
 Where the subroutines above should implement:
-- getTrainTestData: just split a data set into train and test sets,
-  using the given testFold ID for the test set. This means that all
-  observations in the data set should have previously been assigned a
-  fold ID from 1 to 3, and here you are just selecting which
-  observations to assign to each set.
+- getTrainTestData: just split a data set into train and test
+  sets. The splitNum should either a test fold ID (for K-fold
+  cross-validation) or a random seed (if you use random_split several
+  times). 
 - getMostFrequentLabel: for the featureless model, you should always
   predict the most frequent label in the train set (this ignores all
   inputs/features). So just count up the number of times each label
@@ -116,15 +130,15 @@ You should implement/test three different models:
 - convolutional: same convolutional neural network as in part 1.
 - fullyConnected: same fully connected neural network as in part 1.
 
-Then use for loops over data sets, test folds, and models, as in the
+Then use for loops over data sets, splits, and models, as in the
 code below:
 
 #+begin_src python
-  NUM_TEST_FOLDS = 3
+  NUM_SPLITS = 3
   for data_name in DATA_SETS:
-      for testFold in range(NUM_TEST_FOLDS):
+      for splitNum in range(NUM_SPLITS):
 	  for model in "featureless", "fullyConnected", "convolutional":
-	      computeTestError(data_name, testFold, model)
+	      computeTestError(data_name, splitNum, model)
 #+end_src
 
 After computing test error, at least print it out to the screen. Even
@@ -138,13 +152,15 @@ that csv file).
 
 Deliverable should be a PDF uploaded to bblearn with
 - cover page
+- Statement about whether you attempted the extra credits (1) two data
+  sets, (2) three train/test splits.
 - result printouts along with your comments / interpretation.
   - What was the batch size / learning rate / max number of epochs you
     used? Typically these should not vary between train/test splits,
     but can vary between models.
   - What was the number of epochs that minimized the validation loss?
-    What was the test error percent? This should be different for
-    every data set / model / test fold.
+    What was the test error percent? These should be different for
+    every data set / model / split.
   - Are the two neural networks more accurate (less test
     error) than the baseline featureless model?
   - Is one of the neural networks more accurate than the other?
@@ -152,6 +168,8 @@ Deliverable should be a PDF uploaded to bblearn with
     have a pattern that is more difficult for the neural networks to
     learn? On more difficult data sets, the same model will get higher
     test error / lower test accuracy.
+  - If you analyzed more than one train/test split, how does the
+    variation between splits compare to the variation between models?
 - Python code.
 
 IMPORTANT: the SELECTED number of epochs should always be less than
