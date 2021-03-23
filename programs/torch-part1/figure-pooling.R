@@ -1,9 +1,11 @@
+library(ggplot2)
+library(data.table)
 d <- function(input.units, kernel.weights){
   data.table(input.units, kernel.weights)
 }
 figs.dt <- rbind(
-  d(3, 2),
-  d(6, 3))
+  d(20, 4),
+  d(10, 3))
 for(figs.i in 1:nrow(figs.dt)){
   figs.row <- figs.dt[figs.i]
   kernel.width <- figs.row$kernel.weights-1
@@ -13,11 +15,10 @@ for(figs.i in 1:nrow(figs.dt)){
   )]
   g.args <- lapply(units.per.layer, function(N)1:N)
   full.grid.dt <- data.table(do.call(expand.grid, g.args))
-  full.grid.dt[, fully.connected := paste0(output, ",", input)]
-  full.grid.dt[, convolutional := input-output+1]
+  full.grid.dt[, d := input-output+1]
   full.grid.dt[
-    convolutional <= 0 | convolutional-1 > kernel.width,
-    convolutional := NA]
+    d <= 0 | d-1 > kernel.width,
+    d := NA]
   node.dt.list <- list()
   for(layer.i in seq_along(units.per.layer)){
     col.name <- names(units.per.layer)[[layer.i]]
@@ -31,56 +32,47 @@ for(figs.i in 1:nrow(figs.dt)){
       unit.i, layer.i, y)
   }
   (node.dt <- do.call(rbind, node.dt.list))
-  edge.dt <- suppressWarnings(data.table::melt(
-    full.grid.dt,
-    measure=c("fully.connected", "convolutional"),
-    variable.name="connectivity",
-    value.name="subscript",
-    na.rm=TRUE))
-  meta.dt <- edge.dt[, .(
-    weights=length(unique(subscript))
-  ), by=connectivity]
-  library(ggplot2)
-  addMeta <- function(dt){
-    dt[meta.dt, n.weights := weights, on="connectivity"]
+  full.conv.dt <- full.grid.dt[is.finite(d)]
+  edge.dt.list <- list()
+  for(stride in 1:figs.row$kernel.weights){
+    edge.dt.list[[paste(stride)]] <- data.table(
+      stride, full.conv.dt[output %% stride == 0])
   }
-  cc <- function(a,b,s){
-    i <- as.integer(substr(paste0(s), 1, 1))
-    p <- 0.8-0.08*(i %% 2)
-    p*a+(1-p)*b
-  }
-  addMeta(edge.dt)
+  edge.dt <- do.call(rbind, edge.dt.list)
+  node.dt[, node.label := paste0(ifelse(
+    layer.i==1, "x", "h"), unit.i)]
+  edge.dt[, output.label := paste0("h", output)]
+  out.labels <- edge.dt[, .(node.label=unique(output.label)), by=stride]
+  out.nodes <- node.dt[out.labels, on="node.label"]
+  in.nodes <- do.call(
+    rbind, lapply(
+      unique(out.nodes$stride),
+      function(stride)data.table(node.dt[layer.i==1], stride)))
+  show.nodes <- rbind(in.nodes, out.nodes)
   gg <- ggplot()+
     ggtitle(paste(
       "Number of units:",
       paste(units.per.layer, collapse=",")))+
     geom_segment(aes(
-      input.layer, input.y,
-      xend=output.layer, yend=output.y),
-      data=edge.dt)+
-    geom_label(aes(
-      cc(input.layer, output.layer, subscript),
-      cc(input.y, output.y, subscript),
-      label=paste0(
-        ifelse(connectivity=="convolutional", "v", "w"),
-        subscript)),
+      1, input.y,
+      xend=2, yend=output.y),
       data=edge.dt)+
     geom_point(aes(
       layer.i, y),
       shape=21,
       size=8,
       fill="white",
-      data=node.dt)+
+      data=show.nodes)+
     geom_text(aes(
-      layer.i, y, label=paste0(ifelse(
-        layer.i==1, "x", "h"), unit.i)),
-      data=node.dt)+
+      layer.i, y, label=node.label),
+      data=show.nodes)+
     scale_x_continuous("Layer", breaks=unique(node.dt$layer.i))+
     scale_y_continuous("Units", breaks=NULL)+
-    facet_grid(. ~ connectivity + n.weights, labeller=label_both)
+    facet_grid(. ~ stride, labeller=label_both)
+  print(gg)
   png(
     figs.row[, sprintf(
-      "figure-convolutional-%s-%s.png", input.units, kernel.weights
+      "figure-pooling-%s-%s.png", input.units, kernel.weights
     )],
     width=10, height=6, units="in", res=200)
   print(gg)
