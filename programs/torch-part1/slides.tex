@@ -230,11 +230,23 @@ $u=100$ units? (one output unit, ten output units)
     $\mathcal L(\mathbf W)$ which is differentiable, and
     takes small values for good predictions.
   \item Typically for regression we use the mean squared error, and
-    for binary classification we use the logistic (cross entropy)
+    for binary classification we use the mean logistic (cross entropy)
     loss.
-  \item The gradient $\nabla \mathcal L(\mathbf W)$ is a
-    function which tells us the local direction where the loss is most
-    increasing.
+  \item The mean loss $\mathcal L(\mathbf W)$ is averaged over all $N$
+    observations or batches $i$:
+    $$
+    \mathcal L(\mathbf W) =
+    \frac 1 N \sum_{i=1}^N
+    \mathcal L(\mathbf W, \mathbf X_i, \mathbf y_i)
+    $$
+  \item The mean full gradient $\nabla \mathcal L(\mathbf W)$ is a function
+    which tells us the local direction where the loss is most
+    increasing:
+    $$
+    \nabla \mathcal L(\mathbf W) =
+    \frac 1 N \sum_{i=1}^N
+    \nabla \mathcal L(\mathbf W, \mathbf X_i, \mathbf y_i)
+    $$
   \end{itemize}
 \end{frame}
 
@@ -256,7 +268,7 @@ $u=100$ units? (one output unit, ten output units)
   \item Initialize weights $\mathbf W_0$ at some random values near
     zero (more complicated initializations possible).
   \item Since we want to decrease the loss, we take a step $\alpha$ in the
-    opposite direction of the gradient,
+    opposite direction of the mean full gradient,
   $$
 \mathbf W_t = \mathbf W_{t-1} - \alpha \nabla \mathcal L(\mathbf W_{t-1})
 $$
@@ -309,8 +321,8 @@ optimizer.step()
     zero (more complicated initializations possible).
   \item for each epoch $t$ from 1 to max epochs:
   \item for each batch $i$ from 1 to $\lceil n/b \rceil$:
-  \item Let $\mathcal L( \mathbf W, \mathbf X_i, \mathbf y_i )$ be the loss with
-    respect to the $b$ observations in batch $i$.
+  \item Let $\mathcal L( \mathbf W, \mathbf X_i, \mathbf y_i )$ be the
+    mean loss with respect to the $b$ observations in batch $i$.
   $$
 \mathbf W \gets \mathbf W - \alpha \nabla \mathcal L(\mathbf W, \mathbf X_i, \mathbf y_i)
 $$
@@ -417,6 +429,37 @@ backpropagation (0-3).
 \end{eqnarray}
 \end{description}
 
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Computation exercises (gradient descent learning)}
+  Now assume we have used backpropagation to compute gradients with
+  respect to four observations $i$:
+  \begin{eqnarray*}
+    \mathbf \nabla_{\mathbf v}
+    \mathcal L(\mathbf v, \mathbf X_i,\mathbf y_i)
+    &=& \begin{cases}
+      [-1, 1] & i=1\\
+      [-2, 2] & i=2\\
+      [-3, 2] & i=3\\
+      [-1, 2] & i=4
+    \end{cases} 
+  \end{eqnarray*}
+  Starting at current weights $\mathbf v=[-2, 1]$ and using gradient descent
+  with step size $\alpha=0.5$,   (show your work!)
+
+  \begin{enumerate}
+  \item For the full gradient method, there is one step. What is the
+    new weight vector $\mathbf v$ after that step?
+  \item For a batch size of 2, there are two steps. Assume batch 1 is
+    observations $i=1,2$ and batch 2 is observations $i=3,4$. What is the new
+    weight vector $\mathbf v$ after the batch 1 step? After the batch
+    2 step?
+  \item For the stochastic gradient method, there are four steps
+    $i=1,2,3,4$. What is $\mathbf v$ after each
+    of those steps?
+  \end{enumerate}
 \end{frame}
 
 \section{Convolutional networks and pooling}
@@ -641,7 +684,7 @@ torch.nn.Conv1d(in_channels=1,
 \end{frame}
 
 \begin{frame}
-  \frametitle{Computation exercises}
+  \frametitle{Computation exercises (forward propagation)}
   \begin{eqnarray*}
     \mathbf x &=& \begin{bmatrix}
       0 \\
@@ -652,7 +695,7 @@ torch.nn.Conv1d(in_channels=1,
       -1 & 2 & -3 \\
       4 & -5 & 6
     \end{bmatrix}\\
-    \mathbf k &=& \begin{bmatrix}
+    \mathbf v &=& \begin{bmatrix}
       -2 \\
       1
     \end{bmatrix}\\
@@ -661,7 +704,7 @@ torch.nn.Conv1d(in_channels=1,
   \begin{enumerate}
   \item what is the output vector when using $\mathbf w$ as the weight
     matrix in a fully connected layer?
-  \item what is the output vector when using $\mathbf k$ as the kernel
+  \item what is the output vector when using $\mathbf v$ as the kernel
     in a 1d convolutional layer?
   \end{enumerate}
 \end{frame}
@@ -738,8 +781,10 @@ torch.nn.MaxPool1d(kernel_size=3, stride=3)
   If $\mathbf x = [0, 3, 10, -2, 5, 1]$ is an input vector,\\
   and $\mathbf k = [-2, 1]$ is a kernel,\\
   \begin{enumerate}
-  \item what is the output vector when doing mean pooling with a stride of 2?
-  \item what is the output vector when doing max pooling with a stride of 3?
+  \item what is the output vector when doing mean pooling with a
+    stride of 2 and kernel of size 2?
+  \item what is the output vector when doing max pooling with a stride
+    of 3 and kernel of size 3?
   \item what is the output vector when using $\mathbf k$ as the kernel
     in a 1d convolutional layer with a stride of 2?
   \end{enumerate}
