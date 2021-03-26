@@ -181,5 +181,39 @@ the MAX number of epochs.
 ** FAQ
 
 - [[https://towardsdatascience.com/pytorch-switching-to-the-gpu-a7c0b21e8a99][How to use gpu for training]]?
+- Are we printing out to Tensorboard this time like we did with Part
+  1? It is not required, but it may be helpful for you to understand
+  how your code is working!
+- I'm kind of a little bit lost on how to implement the Featureless
+  model? Is it similar to LeNet or Fully Connected model? Or, is it
+  something that we have to completely construct on our own? No it is
+  not similar to the LeNet and Fully Connected models. Yes you have to
+  compute it on your own.
+- To make sure my assumptions are correct, getMostFrequentLabel() is
+  just looping through the data set to find the most frequent label,
+  correct? Yes -- make sure it is the TRAIN set (so the most frequent
+  label may be different depending on your train/test split).
+- What does the second call to learn() do? It learns weights using the
+  whole train set (not just the subtrain set) for computing gradients,
+  using the best number of epochs (which was found using the
+  previous subtrain/validation split).
+- Why doesn't the second call to learn() contain the last parameter
+  for the validation set? At this point you already know the best
+  number of epochs, so you don't need to compute validation loss. So
+  the last/validation set parameter should be optional. If it is used
+  then compute and return the validation loss, otherwise just don't
+  compute any validation loss.
+- What PredictOnSet() is supposed to achieve? It should convert the
+  output of the neural network (a vector of probabilities, one element
+  for each class) to an integer-valued most probable class that can be
+  compared to the labels. For example if the neural network outputs
+  [0.1, 0.05, 0.5, 0.3, 0.05, 0, 0, 0, 0, 0] then that means class 0
+  has predicted score 0.1, class 1 has predicted score 0.05, class 2
+  has predicted score 0.5, etc. In this case the integer 2 should be
+  returned since that is the label with the max score.
+- Out of curiosity, are we still able to turn this project in by
+  Sunday night despite a Friday night deadline like on previous
+  projects? YES.
+
 
 
