@@ -28,6 +28,7 @@ with your program will be posted here.
 | [[file:programs/roadwarrior-part2/README.org][Program 2 part 2]] | [[file:programs/roadwarrior-part2/10test.txt][10test.txt]], [[file:programs/roadwarrior-part2/50test.txt][50test.txt]]                      | [[file:programs/roadwarrior-part2/program2_tests2.py][program2_tests2.py]] |
 | [[file:programs/torch-part1/README.org][Program 3 part 1]] | NA                                          | NA                 |
 | [[file:programs/torch-part2/README.org][Program 3 part 2]] | NA                                          | NA                 |
+| [[file:programs/halma/README.org][Program 4]]        | NA                                          | NA                 |
 
 Please make sure that your report contains the commands and output as
 shown in [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Phase1output.txt][this example output file]]. For each test command
@@ -90,12 +91,12 @@ assignments are for all students.
   [[https://docs.google.com/spreadsheets/d/1_Xl5cOB4lSBkQDS1WNoefugr8xMpNz125wObo4TCr8g/edit?usp=sharing][signup]]. 
 - Week 10, Mar 15: Program 3 part 1 due Sun Mar 21.
 - Week 11, Mar 22: Chapter 5 lecture. Program 3 part 2 due Sun Mar 28.
-- Week 12, Mar 29: Chapter 13 lecture. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] draft paper due.
-- Week 13, Apr 5: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/HW-Ch05.html][Ch5 Homework]]. Final program Phase 0 due Fri Apr 16.
-- Week 14, Apr 12: Final program Phase 1 due Fri Apr 23.
-- Week 15, Apr 19: reading week. presentations. 
-- Week 16, Apr 26: finals week. Final program Phase 2 due day before
-  final exam. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] final paper due.
+- Week 12, Mar 29: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] draft paper due Fri Apr 2. Program 4
+  Phase 0 due Fri Apr 2.
+- Week 13, Apr 5: Program 4 Phase 1 due Fri Apr 9.
+- Week 14, Apr 12: Program 4 Phase 2 due Fri Apr 16.
+- Week 15, Apr 19: reading week -- tournament + exam review.
+- Week 16, Apr 26: finals week. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] final paper due.
 
 ** Video Resources
 
