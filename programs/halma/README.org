@@ -79,7 +79,7 @@ milestones along the way.
 ** The Assignment:
 
 Your task, as indicated above, is to work in self-selected teams of
-2-3 to create a correct and (hopefully!) skilled Halma playing
+2-4 to create a correct and (hopefully!) skilled Halma playing
 agent. The agent will provide a graphical view of the game board, as
 well as a basic two-player turn-taking interface. Here is the basic
 use case:
