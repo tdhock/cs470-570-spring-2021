@@ -39,7 +39,7 @@ the same for all pieces. And yet it should be complex enough to create
 a reasonable-sized search space deep enough to reward finely-tuned
 implementations.
 
-You can read all about Halma on the wiki page:
+You can read all about Halma on the wikipedia page:
 https://en.wikipedia.org/wiki/Halma. It's basically a game that was
 invented at by a surgeon at Harvard Medical School in the late 1800s,
 and has the distinction of being "the only truly American board game."
@@ -362,87 +362,9 @@ sure that teams are moving along, and stay on track to produce a good
 product on time at the final. Each deliverable is a PDF uploaded to
 bblearn; the details and deadlines are as follows:
 
-*** Phase 0: Set up team: Due by Friday April 20, 5pm, DrD's office
-
-Single nicely-formatted page with: Team name, team logo (optional),
-Team members, course, assignment title, date.
-
-This establishes the team and is essentially the cover sheet that
-you'll use for the remaining deliverables.
-
-*** Phase 1 Deliverable: Due on Thurs April 26, in class
-
-Phase 1 Deliverable consists of the following, presented exactly in the order shown below:
-
-- Cover sheet: Team name, team logo, Team members, course, assignment
-  title, date
-- Overview. A brief description of how you chose to architect your
-  project: overview of the key objects/classes and their key methods.
-- Effort description. This documents in a fairly precise fashion,
-  which teammate worked on what parts of the project and how that
-  person performed. Start with an overall statement of how you split
-  up the work in the phase, e.g., "We discussed our skills/interests
-  and this is what came out <discuss>. Given this, we generally
-  decided that Joe would lead on X, Suzy would lead on Y, and Pat
-  would lead on Z". The heart is then a *detailed* table that shows
-  the major tasks involved in that stage. You could use my bullets
-  above as a starting point, but ultimately its up to each team to
-  decide how to split up the work. The table has four columns: Task
-  description, Assigned to, Percentage of effort, completion
-  notes. How to fill this out:
-  - Task description obviously outlines what the task is, with focus
-    on functionalities expected in the outcome product.
-  - Percentage of effort is the percentage of effort that this task
-    took out of the total effort invested for this project
-    phase. Obviously the sum of %effort across all tasks in the phase
-    by all team members (i.e., the effort column as a whole) should
-    total up to 100%. By totalling the effort for tasks done by any
-    one person, one would get the percentage of effort invested by
-    that person in this particular project phase; in an ideal team,
-    that number would be 1/N percent, where N is the number on the
-    team.
-  - Tasks are assigned to ONE person on the team; it is that person's
-    sole responsibility to see that the task gets done.
-  - Completion notes document what actually happened. In the best
-    case, it just says "completed and satisfactory". If the team
-    member was not able to complete the task and another team member
-    had to jump in, this is documented here. Describe what happened,
-    and state what percentage of the task (task owner versus rescuer)
-    performed.
-- Functionality checklist. This documents precisely the functionality
-  that you completed for this phase. Hopefully, this is just a series
-  of "100% working" checkmarks. Make this a table as well, with three
-  columns: Functionality, %complete, notes. Here are the items in the
-  "Functionality" column:
-  - Graphical board display: Generates nicely-formatted GUI for your
-    system, including the board, plus status and move entry areas
-  - Board updating: GUI can receive updates to the board, display them
-    smoothly, and includes move highlighting to chose from/to places
-    of last-moved piece.
-  - Move generator: Given a board and which player to move, it
-    produces a correct and complete list of possible next moves,
-    including jumps.
-  - Win detector: Given a board and a player, correctly returns
-    whether it is a winning (or losing!) board for that player.
-  - A "move" method. Takes in a board and a move and returns either a
-    new board (after making move), or an error report detailing a bad
-    move.
-  - Fully functional play mode: A Game object that plays a fully
-    functional manual game, taking in moves from two human players in
-    alternating sequence, showing the boards, reporting bad moves, and
-    reporting win/loss.
-  - Any extra/additional functionality that you innovated and think is
-    worth highlighting.
-- Demos: Clearly labeled and annotated screenshots that very clearly
-  demonstrated each of the above. In the best case, this is just a
-  sequence of screenshots (labeled and annotated) of two humans
-  playing your game, showing the board, some both good and erroneous
-  moves, and ultimately a win by someone. Obviously, if your product
-  is not able to play a coherent game, then you'll need to at least
-  demo each of the pieces that you did get working. Let's hope it
-  doesn't come to that...
-
-*** Phase 2 Deliverable: Due at Final: April 8, 7:30am
+*** Phase 0: Set up team
+*** Phase 1 Deliverable
+*** Phase 2 Deliverable
 
 - Cover sheet:  Team name, team logo, Team members, course, assignment title, date
 - Overview: Similar to phase 1, but now extended to focus on the creation of your intelligent Halma agent. Condense your description of the basics from Phase1 (labeling them as "Phase1" pieces), but leave them in so as to give a complete picture. Then add in (labeling as Phase 2) what objects/classes you added to upgrade your program into an intelligent system for playing Halma. Be sure to discuss the design of your utility function, i.e., what metrics it uses to determine the "goodness" of a board.
