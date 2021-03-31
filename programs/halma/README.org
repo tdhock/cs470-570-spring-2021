@@ -71,7 +71,7 @@ of the rules we'll observe are:
 Although the Halma challenge is fairly simple as far as games go, it
 will still take some substantial time and effort to get all the little
 bits programmed and working right. Thus, we will divide up into teams
-of 2-3 persons for this challenge. To help people out a bit with their
+for this challenge. To help people out a bit with their
 planning and division of labor, we'll outline the programming task
 into distinct overall tasks, and we'll have some "proof-of-progress"
 milestones along the way.  
@@ -79,7 +79,7 @@ milestones along the way.
 ** The Assignment:
 
 Your task, as indicated above, is to work in self-selected teams of
-2-4 to create a correct and (hopefully!) skilled Halma playing
+to create a correct and (hopefully!) skilled Halma playing
 agent. The agent will provide a graphical view of the game board, as
 well as a basic two-player turn-taking interface. Here is the basic
 use case:
@@ -365,7 +365,8 @@ bblearn; the details and deadlines are as follows:
 *** Phase 0 Deliverable
 
 Single nicely-formatted page with: Team name, team logo (optional),
-Team members, course, assignment title, date.
+Team members (max 4 students per team), course, assignment title,
+date.
 
 This establishes the team and is essentially the cover sheet that
 you'll use for the remaining deliverables.
