@@ -15,6 +15,8 @@ Syllabus: [[https://docs.google.com/document/d/1sB11YjMPLF0TLuzI-9YCQbSQIlHbgHvR
 Honors discussion group: [[https://join.slack.com/t/nau-wva4384/shared_invite/zt-m9x3024m-2M~u4rIV87bHI0dWzdzfKw][Slack]], [[http://whenisgood.net/7shew22][Whenisgood Poll]], [[https://nau.zoom.us/j/82247141634][Zoom meeting 6-7PM
 Thursdays]].
 
+[[https://nau.edu/course_evals][Course evals]] due Apr 25!
+
 ** Programming Projects
 
 For each programming project the input data file that you must use
