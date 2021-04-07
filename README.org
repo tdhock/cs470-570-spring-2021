@@ -95,7 +95,7 @@ assignments are for all students.
 - Week 11, Mar 22: Chapter 5 lecture. Program 3 part 2 due Sun Mar 28.
 - Week 12, Mar 29: [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] draft paper due Fri Apr 2. Program 4
   Phase 0 due Fri Apr 2.
-- Week 13, Apr 5: Program 4 Phase 1 due Fri Apr 9.
+- Week 13, Apr 5: [[https://pypi.org/project/annotate_regions/#files][Tkinter demo program]], Program 4 Phase 1 due Fri Apr 9.
 - Week 14, Apr 12: Program 4 Phase 2 due Fri Apr 16.
 - Week 15, Apr 19: reading week -- tournament + exam review.
 - Week 16, Apr 26: finals week. [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/CS570-GradProjectOutline.pdf][Grad project]] final paper due.
