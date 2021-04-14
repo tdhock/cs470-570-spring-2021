@@ -349,11 +349,10 @@ but the basic outline goes like this:
 
 - 0-60% -- Team has a fully-functional *manual* version of a Halma
   playing program.
-- 60-90% -- Team has a fully-functional Halma agent, i.e., program
+- 60-100% -- Team has a fully-functional Halma agent, i.e., program
   with smart computer player. Detailed points depend on level of
   smartness, as described in write-up and demonstrated in tournament.
-- 90-100% -- The last 10% of the points will be doled out as premiums
-  in the tournament: winner gets 10%, second gets 7.5%, third gets 5%
+- Extra credit points will be doled out as premiums in the tournament.
 
 ** Project Deadlines and Deliverables:
 
