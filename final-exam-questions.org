@@ -1,0 +1,61 @@
+Final exam study guide!
+
+- [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Docs/Exam1%20Review%20sheet.pdf][All material from mid-term]].
+  - pay particular attention to the path finding search problems as in
+    program 2. Given a graph and start/end nodes, how do the search
+    algos (depth first, breadth first, A*) work? What nodes are
+    searched, in what order? What path is returned? Is it guaranteed
+    to be optimal? What does it mean to have a heuristic that is
+    admissible? Consistent?
+- Supervised Learning, general
+  - a supervised learning algorithm will input a labeled
+    training data set, and output what?
+  - what are three advantages of supervised machine
+    learning, relative to classical programming techniques?
+  - Machine learning data sets are usually stored in CSV data files,
+    where rows are ___ and columns are ___ and ___ ?
+- Overfitting
+  - when splitting data into train/test sets, what is the purpose of the train set?
+  - when splitting data into train/test sets, what is the purpose of the test set?
+  - when splitting a train set into subtrain/validation
+    sets, what is the purpose of the subtrain set?
+  - when splitting a train set into subtrain/validation
+    sets, what is the purpose of the validation set?
+  - The goal of supervised machine learning is to get a function that
+    yields highly accurate predictions with respect to what data?
+  - How can you tell if machine learning model predictions are
+    overfitting?
+- Cross-validation
+  - What is the difference between inner and outer cross-validation?
+    What are the input/output sets for each?
+  - In 4-fold cross-validation, we randomly assign each observation a fold ID
+    in what range of values?
+  - In 4-fold cross-validation for subtrain/validation splits, if the
+    validation fold ID is 3, then what observations are used as the
+    subtrain set?
+  - When using 4-fold cross-validation for model evaluation, the test
+    set is used for what?
+  - To determine if classification models have learned any non-trivial
+    patterns in the data, they should be compared with a baseline
+    which ignores all inputs/features and always predicts what value?
+- Neural networks in torch
+  - When using the torch module in python to learn a neural network,
+    what data set (all/train/test/subtrain/validation) should you use
+    when you compute gradients with the backward method? Why that one
+    and not the others?
+  - When using torch to learn a neural network, do LARGE or SMALL
+    values of the number of steps/iterations/epochs result in
+    overfitting? Why?
+  - When using torch to learn a neural network, do LARGE or SMALL
+    values of the number of hidden units/layers result in overfitting?
+    Why?
+- [[file:file:programs/torch-part1/slides.pdf][Neural network architecture exercises]].
+- Adversarial search
+  - Given a tree with known terminal/leaf node utility values, compute
+    the value of each parent node. What is the best action to take as
+    in the minimax algorithm?
+  - Assuming the leaf nodes are visited from left to right on the tree
+    diagram, which nodes would be pruned by the alpha-beta algorithm?
+  - What would be a node order which results in the most/least pruning
+    using the alpha-beta algorithm? Which leaf nodes would be pruned
+    in those cases?
