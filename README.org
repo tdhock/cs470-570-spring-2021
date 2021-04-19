@@ -30,7 +30,7 @@ with your program will be posted here.
 | [[file:programs/roadwarrior-part2/README.org][Program 2 part 2]] | [[file:programs/roadwarrior-part2/10test.txt][10test.txt]], [[file:programs/roadwarrior-part2/50test.txt][50test.txt]]                      | [[file:programs/roadwarrior-part2/program2_tests2.py][program2_tests2.py]] |
 | [[file:programs/torch-part1/README.org][Program 3 part 1]] | NA                                          | NA                 |
 | [[file:programs/torch-part2/README.org][Program 3 part 2]] | NA                                          | NA                 |
-| [[file:programs/halma/README.org][Program 4]]        | NA                                          | NA                 |
+| [[file:programs/halma/README.org][Program 4]]        | [[https://docs.google.com/spreadsheets/d/174aiMegDEtJPlnE4zQ0VIoXVK1f07JuJhzx-_IL0kic/edit#gid=0][Tournament signup]]                                          | NA                 |
 
 Please make sure that your report contains the commands and output as
 shown in [[https://www.cefns.nau.edu/~edo/Classes/CS470-570_WWW/Assignments/Prog1-Boggle/Phase1output.txt][this example output file]]. For each test command
