@@ -17,6 +17,8 @@ Thursdays]].
 
 [[https://nau.edu/course_evals][Course evals]] due Apr 25!
 
+Final exam: Weds Apr 28, 7:30am-9:30am, on bblearn.
+
 ** Programming Projects
 
 For each programming project the input data file that you must use
